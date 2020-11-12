@@ -1,0 +1,5 @@
+.row {
+  color: aqua;
+  display: inline;
+  justify-content: space-between;
+}
