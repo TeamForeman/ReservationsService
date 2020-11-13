@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "webpack -d –watch",
+    "seed": "node DB/seed.js",
     "server-dev": "nodemon server/server.js"
   },
   "dependencies": {
@@ -19,7 +20,9 @@
     "body-parser": "^1.19.0",
     "css-loader": "^5.0.1",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "loader-runner": "^4.1.0",
+    "mongoose": "^5.10.14",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "style-loader": "^2.0.0",
