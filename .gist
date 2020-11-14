@@ -1,0 +1,256 @@
+  url: 'http://localhost:3001/calendar',
+
+
+  {
+        "_id" : ObjectId("5fae0273262ac7bb04167979"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-09-25T02:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb0416797e"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-09-30T02:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb04167983"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-10-05T02:50:11.071Z"),
+                "available" : false,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb04167988"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-10-10T02:50:11.071Z"),
+                "available" : false,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb0416798d"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-10-15T02:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb04167992"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-10-20T02:50:11.071Z"),
+                "available" : false,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb04167997"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-10-25T02:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb0416799c"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-10-30T02:50:11.071Z"),
+                "available" : false,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679a1"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-11-04T02:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679a6"),
+        "apartmentId" : 1,
+        "commonID" : 1,
+        "CalendarDays" : {
+                "date" : ISODate("2021-11-09T03:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 8,
+                "apartmentCost" : 145,
+                "cleaningCost" : 14,
+                "serviceCost" : 21,
+                "totalCost" : 180
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679ab"),
+        "apartmentId" : 3,
+        "commonID" : 3,
+        "CalendarDays" : {
+                "date" : ISODate("2020-11-13T03:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 6,
+                "apartmentCost" : 136,
+                "cleaningCost" : 13,
+                "serviceCost" : 20,
+                "totalCost" : 169
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679b0"),
+        "apartmentId" : 3,
+        "commonID" : 3,
+        "CalendarDays" : {
+                "date" : ISODate("2020-11-18T03:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 6,
+                "apartmentCost" : 136,
+                "cleaningCost" : 13,
+                "serviceCost" : 20,
+                "totalCost" : 169
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679b5"),
+        "apartmentId" : 3,
+        "commonID" : 3,
+        "CalendarDays" : {
+                "date" : ISODate("2020-11-23T03:50:11.071Z"),
+                "available" : false,
+                "totalGuests" : 6,
+                "apartmentCost" : 136,
+                "cleaningCost" : 13,
+                "serviceCost" : 20,
+                "totalCost" : 169
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679ba"),
+        "apartmentId" : 3,
+        "commonID" : 3,
+        "CalendarDays" : {
+                "date" : ISODate("2020-11-28T03:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 6,
+                "apartmentCost" : 136,
+                "cleaningCost" : 13,
+                "serviceCost" : 20,
+                "totalCost" : 169
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679bf"),
+        "apartmentId" : 3,
+        "commonID" : 3,
+        "CalendarDays" : {
+                "date" : ISODate("2020-12-03T03:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 6,
+                "apartmentCost" : 136,
+                "cleaningCost" : 13,
+                "serviceCost" : 20,
+                "totalCost" : 169
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679c4"),
+        "apartmentId" : 3,
+        "commonID" : 3,
+        "CalendarDays" : {
+                "date" : ISODate("2020-12-08T03:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 6,
+                "apartmentCost" : 136,
+                "cleaningCost" : 13,
+                "serviceCost" : 20,
+                "totalCost" : 169
+        },
+        "__v" : 0
+}
+{
+        "_id" : ObjectId("5fae0273262ac7bb041679c9"),
+        "apartmentId" : 3,
+        "commonID" : 3,
+        "CalendarDays" : {
+                "date" : ISODate("2020-12-13T03:50:11.071Z"),
+                "available" : true,
+                "totalGuests" : 6,
+                "apartmentCost" : 136,
+                "cleaningCost" : 13,
+                "serviceCost" : 20,
+                "totalCost" : 169
+        },
