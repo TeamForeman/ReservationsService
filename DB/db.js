@@ -24,7 +24,6 @@ let ApartmentCalendar = mongoose.Schema ({
 let Calendar = mongoose.model('Calendar', ApartmentCalendar);
 
 let getCalendarDataByApartment = (id, callback) => {
-  //console.log('getCalendarDataByApartment', appartmentID);
   Calendar.find({apartmentId: id, 'CalendarDays.available': false }, (err, result) => {
     if (err) {
       console.log('Error in DBFetch');

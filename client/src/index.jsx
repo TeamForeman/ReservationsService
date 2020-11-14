@@ -10,17 +10,9 @@ import axios from 'axios';
 function Example () {
   // Declare a new state variable, which we'll call "count"
   const [count, setCount] = useState(0);
-
-  useEffect(() =>   {
+  const [caldendarData, setCalendarData] = useState([]);
+  useEffect(() => {
     console.log('requst made');
-    // axios.get('https://localhost:3001/calendar')
-    //   .then((response) => {
-    //     console.log(response.data);
-
-    //   }), (error) => {
-    //   console.log(error);
-    // };
-
     let request = $.ajax ({
       url: 'http://localhost:3001/calendar',
       method: 'GET',
@@ -28,9 +20,15 @@ function Example () {
     });
 
     request.done(function(data) {
-      console.log(data);
+      let arr = [];
+      for (let obj of data) {
+        arr.push(obj.CalendarDays.date);
+      }
+      console.log(arr);
+      //setCalendarData(arr);
+
       //parent.setState({repos: data});
-    });
+    }, caldendarData);
 
     request.fail(function(jqXHR, textStatus) {
       alert('Requset 25 failed:' + textStatus);
