@@ -3,3 +3,30 @@
   display: inline;
   justify-content: space-between;
 }
+
+.panel {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  color: magenta;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  width: 400px;
+  height: 300px;
+  padding: 5px;
+  border: 1px solid navy;
+}
+
+#one {
+  position: fixed;
+  top: 80px;
+  left: 10px;
+  background-color: lightblue;
+
+
+}
