@@ -1,10 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import DatePicker from 'react-DatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import './Calendar.css';
 
-const CalendarComponent = () => {
+const CalendarComponent = (props) => {
+
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+
+  const [disabledDays, setDisabledDays] = useState();
+
+
+
+  console.log(props.data);
 
   return (
     <>
@@ -14,6 +22,8 @@ const CalendarComponent = () => {
         selectsStart
         startDate={startDate}
         endDate={endDate}
+        minDate={startDate}
+        dayClassName={date => props.data [date.getTime()] === true ? 'disabled-date' : undefined}
       />
       <DatePicker
         selected={endDate}

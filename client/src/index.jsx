@@ -17,29 +17,25 @@ function Example () {
   // Declare a new state variable, which we'll call "count"
   const [guests, setGuests] = useState(0);
   const [isBusy, setBusy] = useState({loading: true});
-  const [caldendarData, setCalendarData] = useState([]);
+  const [caldendarData, setCalendarData] = useState({});
+
+
+  const disaBleDays = (dates) => {
+    //2020-11-14T03:50:11.071Z
+    let objDisabledDates = {};
+    for (let date of dates) {
+      let dateSubs = date.substring(0, 10);
+      let dateFormated = date.substring(5, 7) + '/' + date.substring(8, 10)
+      + '/' + date.substring(0, 4);
+      let time = new Date(dateFormated).getTime();
+      objDisabledDates[time] = true;
+    }
+    return objDisabledDates;
+  };
 
   useEffect(() => {
 
     console.log('requst made');
-
-
-    // axios.get('http://localhost:3001/calendar?ApartmentId=1').
-    //   then(result =>
-    //     setGuests(8)
-    //   ).then(
-    //     console.log(guests)
-    //   );
-
-
-
-    // .then(function (response) {
-    //   console.log(response);
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // });
-    //setBusy(true);
     setBusy({loading: true});
 
     let request = $.ajax ({
@@ -53,7 +49,8 @@ function Example () {
         arr.push(obj.CalendarDays.date);
       }
       setGuests(data[0].CalendarDays.totalGuests);
-      setCalendarData(arr);
+      let disabledDays = disaBleDays(arr);
+      setCalendarData(disabledDays);
       setBusy({loading: false});
     });
     console.log(guests);
@@ -61,9 +58,9 @@ function Example () {
       alert('Requset 25 failed:' + textStatus);
     });
   }, []);
-  useEffect(() => {
+  // useEffect(() => {
 
-  },[guests]);
+  // },[guests]);
 
   return (
     <div className ="box">
@@ -73,7 +70,7 @@ function Example () {
         <div>
           <Price/>
           <Rating/>
-          <Calendar/>
+          <Calendar data = {caldendarData}/>
           <Guests guests = {guests}/>
           <Button/>
         </div>
