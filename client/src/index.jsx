@@ -6,6 +6,10 @@ import Guests from './Guests/Guests.jsx';
 import './CSS/Style.css';
 import $ from 'jquery';
 import axios from 'axios';
+import Price from './Price/Price.jsx';
+import Rating from './Rating/Rating.jsx';
+
+
 // eslint-disable-next-line func-style
 function Example () {
   // Declare a new state variable, which we'll call "count"
@@ -37,6 +41,8 @@ function Example () {
 
   return (
     <div>
+      <Price/>
+      <Rating/>
       <Calendar/>
       <Guests/>
       <p>You clicked {count} times</p>
