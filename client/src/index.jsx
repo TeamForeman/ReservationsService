@@ -7,6 +7,7 @@ import './CSS/Style.css';
 import $ from 'jquery';
 import axios from 'axios';
 import Price from './Price/Price.jsx';
+import Button from './Button/Button.jsx';
 import Rating from './Rating/Rating.jsx';
 
 
@@ -45,7 +46,9 @@ function Example () {
       <Rating/>
       <Calendar/>
       <Guests/>
-      <p>You clicked {count} times</p>
+      <Button/>
+      <p>You clicked {count} t
+      imes</p>
       <button onClick= {()=> count++} className = "row">
         Click me
       </button>
