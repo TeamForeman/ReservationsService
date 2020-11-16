@@ -6,19 +6,21 @@ import axios from 'axios';
 
 const CalendarComponent = (props) => {
   console.log(props.data.obj);
-
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [disabledDays, setDisabledDays] = useState({});
+  //when start day is selected this object will hold start day and max end day
+  //which is day before first booked day after start day
   const [disableOnSelect, setDisabledOnSelect] = useState({});
 
+  //received disabled array data from props and dets {disabledDays} to it
   useEffect(() => {
     setDisabledDays(props.data.obj);
   } );
 
+  //finds index in a sorted array which contains first greater number
   const findIndex = (dateTime) => {
     let arr = props.data.arr;
-    //console.log(arr);
     let start = 0;
     let end = arr.length - 1;
     while (start < end) {
@@ -31,6 +33,15 @@ const CalendarComponent = (props) => {
     }
     return end;
   };
+
+  /*
+  when start date will be selected
+  before end day selection
+  program needs to show on window only available end dayes
+  available end days are all days from start day to first disabled day
+  in order to find end date we need to find next element in props.data.arr
+  after start date
+  **/
   const OnSelectStartDate = () => {
     let date = startDate.getTime();
     let index = findIndex(date);
@@ -38,29 +49,34 @@ const CalendarComponent = (props) => {
     obj.startDate = date;
     obj.endDate = props.data.arr[index];
     setDisabledOnSelect(obj);
-    // console.log(date," ", props.data.arr[index]);
   };
+
+  /*
+  This function will be invoked everu time start date is changed
+  Function sets available date range to object
+  and this object will be called during calendar rendering
+  during rendering day is not in available days range will be
+  shown as disabled on a window
+  **/
   useEffect(() => {
     console.log(startDate.getTime());
     OnSelectStartDate();
-    // OnSelectStartDate();
     return () => {
       setDisabledOnSelect({});
     };
   }, [startDate]);
 
-
-
+  /*
+  every time end date is selected program automatically send api request to server and received data about costs
+  **/
   useEffect(() => {
-
     console.log('sendData');
-    console.log(startDate , " " , endDate);
+    console.log(startDate , " ", endDate);
     let query = {
       startDate: startDate,
       endDate: endDate,
       appartmentID: props.appartmentID
     };
-
     const result = axios.get('http://localhost:3001/reservationCost',{
       params: query
     }).then (data => {
@@ -68,29 +84,32 @@ const CalendarComponent = (props) => {
     }).catch(error => {
       console.log(error);
     });
-
   }, [endDate]);
 
-  console.log(props.data);
-
+  //console.log(props.data);
   return (
     <>
       <DatePicker
         selected={startDate}
         onChange={date => setStartDate(date)}
-        //onChange={date => setEndDate(date)}
         selectsStart
         startDate={startDate}
         endDate={startDate}
         minDate={startDate}
         monthsShown={2}
+        //on on render cliend receives data about booked days and those days
+        //are shown on the window as disabled
         dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
       />
       <DatePicker
         selected={endDate}
         onChange={date=>setEndDate(date)}
         selectsEnd
+        //on on render cliend receives data about booked days and those days
+        //are shown on the window as disabled
         dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
+        //when client selects start day
+        //this shows only available and days as active
         dayClassName ={date => disableOnSelect.startDate !== undefined ?
           date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date' : null : null
         }

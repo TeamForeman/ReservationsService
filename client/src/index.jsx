@@ -20,6 +20,10 @@ function Example () {
   const [caldendarData, setCalendarData] = useState({});
   const [appartmentID, setAppartmentID] = useState(1);
 
+  /*
+    this function received dates from server and changes format and
+    saves them into sorted array and object to pass it to calendar
+  **/
   const disaBleDays = (dates) => {
     //2020-11-14T03:50:11.071Z
     let objDisabledDates = {};
@@ -39,8 +43,12 @@ function Example () {
     return obj;
   };
 
+  /*
+    this function will be invoked before renderin
+    it will retreive data about appartment from server
+    and sets this data to
+  **/
   useEffect(() => {
-
     console.log('requst made');
     setBusy({loading: true});
 
@@ -64,9 +72,6 @@ function Example () {
       alert('Requset 25 failed:' + textStatus);
     });
   }, []);
-  // useEffect(() => {
-
-  // },[guests]);
 
   return (
     <div className ="box">
