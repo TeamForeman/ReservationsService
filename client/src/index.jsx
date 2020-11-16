@@ -18,7 +18,7 @@ function Example () {
   const [guests, setGuests] = useState(0);
   const [isBusy, setBusy] = useState({loading: true});
   const [caldendarData, setCalendarData] = useState({});
-
+  const [appartmentID, setAppartmentID] = useState(1);
 
   const disaBleDays = (dates) => {
     //2020-11-14T03:50:11.071Z
@@ -47,7 +47,7 @@ function Example () {
     let request = $.ajax ({
       url: 'http://localhost:3001/calendar',
       method: 'GET',
-      data: {'ApartmentId': 1}
+      data: {'ApartmentId': appartmentID}
     });
     request.done(function(data) {
       let arr = [];
@@ -76,7 +76,7 @@ function Example () {
         <div>
           <Price/>
           <Rating/>
-          <Calendar data = {caldendarData}/>
+          <Calendar data = {caldendarData} appartmentID = {appartmentID}/>
           <Guests guests = {guests}/>
           <Button/>
         </div>

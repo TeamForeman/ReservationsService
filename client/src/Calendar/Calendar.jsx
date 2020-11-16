@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import DatePicker from 'react-DatePicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Calendar.css';
+import axios from 'axios';
 
 const CalendarComponent = (props) => {
   console.log(props.data.obj);
@@ -17,7 +18,7 @@ const CalendarComponent = (props) => {
 
   const findIndex = (dateTime) => {
     let arr = props.data.arr;
-    console.log(arr);
+    //console.log(arr);
     let start = 0;
     let end = arr.length - 1;
     while (start < end) {
@@ -37,7 +38,7 @@ const CalendarComponent = (props) => {
     obj.startDate = date;
     obj.endDate = props.data.arr[index];
     setDisabledOnSelect(obj);
-    console.log(date," ", props.data.arr[index]);
+    // console.log(date," ", props.data.arr[index]);
   };
   useEffect(() => {
     console.log(startDate.getTime());
@@ -46,7 +47,29 @@ const CalendarComponent = (props) => {
     return () => {
       setDisabledOnSelect({});
     };
-  }, [startDate] );
+  }, [startDate]);
+
+
+
+  useEffect(() => {
+
+    console.log('sendData');
+    console.log(startDate , " " , endDate);
+    let query = {
+      startDate: startDate,
+      endDate: endDate,
+      appartmentID: props.appartmentID
+    };
+
+    const result = axios.get('http://localhost:3001/reservationCost',{
+      params: query
+    }).then (data => {
+      console.log(data);
+    }).catch(error => {
+      console.log(error);
+    });
+
+  }, [endDate]);
 
   console.log(props.data);
 
