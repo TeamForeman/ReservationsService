@@ -10,6 +10,7 @@ import Price from './Price/Price.jsx';
 import Button from './Button/Button.jsx';
 import Rating from './Rating/Rating.jsx';
 import beforeRender from './Hooks/beforerender.js';
+import Fees from './Fees/Fees.jsx';
 
 
 // eslint-disable-next-line func-style
@@ -19,6 +20,8 @@ function Example () {
   const [isBusy, setBusy] = useState({loading: true});
   const [caldendarData, setCalendarData] = useState({});
   const [appartmentID, setAppartmentID] = useState(1);
+  const [fees, setFees] = useState({});
+  const [showFees, setShowFees] = useState(false);
 
   /*
     this function received dates from server and changes format and
@@ -69,9 +72,33 @@ function Example () {
     });
     console.log(guests);
     request.fail(function(jqXHR, textStatus) {
-      alert('Requset 25 failed:' + textStatus);
+      alert('Requset Fetch Booked days failed:' + textStatus);
     });
   }, []);
+
+  /*
+    This function will be invoked on end date click
+    from Calendar Component
+
+  **/
+  const endDateClick = (startDate, endDate) => {
+    console.log('sendData');
+    console.log(startDate , " ", endDate);
+    let query = {
+      startDate: startDate,
+      endDate: endDate,
+      appartmentID: appartmentID
+    };
+    const result = axios.get('http://localhost:3001/reservationCost',{
+      params: query
+    }).then (data => {
+      console.log('Data Received', data);
+    }).catch(error => {
+      console.log('request Cost data error', error);
+    });
+
+  };
+
 
   return (
     <div className ="box">
@@ -81,9 +108,10 @@ function Example () {
         <div>
           <Price/>
           <Rating/>
-          <Calendar data = {caldendarData} appartmentID = {appartmentID}/>
+          <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
           <Guests guests = {guests}/>
           <Button/>
+          <Fees prive = {5} nights = {5} fees = {fees} />
         </div>
       )}
     </div>

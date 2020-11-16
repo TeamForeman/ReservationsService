@@ -35,12 +35,12 @@ const CalendarComponent = (props) => {
   };
 
   /*
-  when start date will be selected
-  before end day selection
-  program needs to show on window only available end dayes
-  available end days are all days from start day to first disabled day
-  in order to find end date we need to find next element in props.data.arr
-  after start date
+    when start date will be selected
+    before end day selection
+    program needs to show on window only available end dayes
+    available end days are all days from start day to first disabled day
+    in order to find end date we need to find next element in props.data.arr
+    after start date
   **/
   const OnSelectStartDate = () => {
     let date = startDate.getTime();
@@ -52,11 +52,11 @@ const CalendarComponent = (props) => {
   };
 
   /*
-  This function will be invoked everu time start date is changed
-  Function sets available date range to object
-  and this object will be called during calendar rendering
-  during rendering day is not in available days range will be
-  shown as disabled on a window
+    This function will be invoked everu time start date is changed
+    Function sets available date range to object
+    and this object will be called during calendar rendering
+    during rendering day is not in available days range will be
+    shown as disabled on a window
   **/
   useEffect(() => {
     console.log(startDate.getTime());
@@ -67,26 +67,13 @@ const CalendarComponent = (props) => {
   }, [startDate]);
 
   /*
-  every time end date is selected program automatically send api request to server and received data about costs
+    every time end date is selected program automatically send api request to server and received data about costs
   **/
   useEffect(() => {
-    console.log('sendData');
-    console.log(startDate , " ", endDate);
-    let query = {
-      startDate: startDate,
-      endDate: endDate,
-      appartmentID: props.appartmentID
-    };
-    const result = axios.get('http://localhost:3001/reservationCost',{
-      params: query
-    }).then (data => {
-      console.log(data);
-    }).catch(error => {
-      console.log(error);
-    });
+    props.endDateClick(startDate, endDate);
   }, [endDate]);
 
-  //console.log(props.data);
+
   return (
     <>
       <DatePicker
