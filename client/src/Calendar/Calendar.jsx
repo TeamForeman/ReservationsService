@@ -4,13 +4,49 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './Calendar.css';
 
 const CalendarComponent = (props) => {
+  console.log(props.data.obj);
 
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [disabledDays, setDisabledDays] = useState({});
+  const [disableOnSelect, setDisabledOnSelect] = useState({});
 
-  const [disabledDays, setDisabledDays] = useState();
+  useEffect(() => {
+    setDisabledDays(props.data.obj);
+  } );
 
-
+  const findIndex = (dateTime) => {
+    let arr = props.data.arr;
+    console.log(arr);
+    let start = 0;
+    let end = arr.length - 1;
+    while (start < end) {
+      let mid = Math.floor((start + end) / 2);
+      if (arr[mid] < dateTime) {
+        start = mid + 1;
+      } else {
+        end = mid;
+      }
+    }
+    return end;
+  };
+  const OnSelectStartDate = () => {
+    let date = startDate.getTime();
+    let index = findIndex(date);
+    let obj = {};
+    obj.startDate = date;
+    obj.endDate = props.data.arr[index];
+    setDisabledOnSelect(obj);
+    console.log(date," ", props.data.arr[index]);
+  };
+  useEffect(() => {
+    console.log(startDate.getTime());
+    OnSelectStartDate();
+    // OnSelectStartDate();
+    return () => {
+      setDisabledOnSelect({});
+    };
+  }, [startDate] );
 
   console.log(props.data);
 
@@ -19,18 +55,25 @@ const CalendarComponent = (props) => {
       <DatePicker
         selected={startDate}
         onChange={date => setStartDate(date)}
+        //onChange={date => setEndDate(date)}
         selectsStart
         startDate={startDate}
-        endDate={endDate}
+        endDate={startDate}
         minDate={startDate}
-        dayClassName={date => props.data [date.getTime()] === true ? 'disabled-date' : undefined}
+        monthsShown={2}
+        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
       />
       <DatePicker
         selected={endDate}
         onChange={date=>setEndDate(date)}
         selectsEnd
+        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
+        dayClassName ={date => disableOnSelect.startDate !== undefined ?
+          date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date' : null : null
+        }
         startDate={startDate}
         endDate={endDate}
+        monthsShown={2}
         minDate={startDate}
       />
     </>

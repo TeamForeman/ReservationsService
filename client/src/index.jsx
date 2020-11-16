@@ -23,14 +23,20 @@ function Example () {
   const disaBleDays = (dates) => {
     //2020-11-14T03:50:11.071Z
     let objDisabledDates = {};
+    let arr = [];
     for (let date of dates) {
       let dateSubs = date.substring(0, 10);
       let dateFormated = date.substring(5, 7) + '/' + date.substring(8, 10)
       + '/' + date.substring(0, 4);
       let time = new Date(dateFormated).getTime();
+      arr.push(time);
       objDisabledDates[time] = true;
     }
-    return objDisabledDates;
+    let obj = {};
+    obj.obj = objDisabledDates;
+    arr.sort();
+    obj.arr = arr;
+    return obj;
   };
 
   useEffect(() => {
@@ -50,7 +56,7 @@ function Example () {
       }
       setGuests(data[0].CalendarDays.totalGuests);
       let disabledDays = disaBleDays(arr);
-      setCalendarData(disabledDays);
+      setCalendarData( disabledDays);
       setBusy({loading: false});
     });
     console.log(guests);
