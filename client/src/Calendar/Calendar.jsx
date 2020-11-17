@@ -5,7 +5,7 @@ import './Calendar.css';
 import axios from 'axios';
 
 const CalendarComponent = (props) => {
-  console.log(props.data.obj);
+  //console.log(props.data.obj);
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [disabledDays, setDisabledDays] = useState({});
@@ -59,7 +59,7 @@ const CalendarComponent = (props) => {
     shown as disabled on a window
   **/
   useEffect(() => {
-    console.log(startDate.getTime());
+    //console.log(startDate.getTime());
     OnSelectStartDate();
     return () => {
       setDisabledOnSelect({});

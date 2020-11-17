@@ -25,9 +25,9 @@ app.get('/calendar', (req, res) => {
 });
 
 app.get('/reservationCost', (req, res) => {
-  console.log('reservationCost');
-  console.log(req.query);
-  console.log('reservationCostend');
+  // console.log('reservationCost');
+  // console.log(req.query);
+  // console.log('reservationCostend');
   let appartmentID = (Number) (req.query.appartmentID);
 
   db.getCostsByAppartment(appartmentID, (err, data) => {
@@ -41,6 +41,24 @@ app.get('/reservationCost', (req, res) => {
       res.status(201).json(data);
     }
   });
+});
+
+
+app.post('/makeReservation', (req, res) => {
+  console.log('makeReservation');
+  console.log(req.body.params);
+  let params = req.body.params;
+  db.makeReservation (params, (err, data) => {
+    if (err) {
+      console.log('error during saving reservation data');
+      res.sendStatus(400);
+    } else {
+      console.log('Reservation Data saved');
+      res.sendStatus(201);
+    }
+  });
+
+
 });
 
 let port = process.env.PORT || 3001;

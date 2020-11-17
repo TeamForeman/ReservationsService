@@ -17,12 +17,14 @@ import Fees from './Fees/Fees.jsx';
 function Example () {
   // Declare a new state variable, which we'll call "count"
   const [guests, setGuests] = useState(0);
+  const [selectedGuests, setSelectedGuests] = useState({});
   const [isBusy, setBusy] = useState({loading: true});
   const [caldendarData, setCalendarData] = useState({});
   const [appartmentID, setAppartmentID] = useState(1);
   const [fees, setFees] = useState({});
-  const [showFees, setShowFees] = useState(false);
-
+  const [showFees, setShowFees] = useState(true);
+  const [buttonTitle, setButtonTitle] = useState('Check Availability');
+  const [reservationDates, setReservationDates] = useState({startDate: '', endDate: ''});
   /*
     this function received dates from server and changes format and
     saves them into sorted array and object to pass it to calendar
@@ -69,23 +71,26 @@ function Example () {
       let disabledDays = disaBleDays(arr);
       setCalendarData( disabledDays);
       setBusy({loading: false});
+
     });
-    console.log(guests);
+    //console.log(guests);
     request.fail(function(jqXHR, textStatus) {
       alert('Requset Fetch Booked days failed:' + textStatus);
     });
   }, []);
+
 
   /*
     This function will be invoked on end date click
     from Calendar Component
 
   **/
-  const endDateClick = (startDate, endDate) => {
 
+  const endDateClick = (startDate, endDate) => {
+    setReservationDates({startDate:startDate, endDate:endDate});
+    setShowFees(true);
     console.log('sendData');
     console.log(startDate, " ", endDate);
-    let ignore = false;
     let query = {
       startDate: startDate,
       endDate: endDate,
@@ -105,24 +110,63 @@ function Example () {
           serviceFee: receivedObj.CalendarDays.serviceCost,
           total: receivedObj.CalendarDays.totalCost
         };
-        if (!ignore && objFees.total !== undefined) {
-        }
-        setShowFees(objFees);
-        console.log('obj', fees," ", objFees);
-        setShowFees(true);
+        setFees(objFees);
+        console.log('obj', fees," ", objFees, ' ', showFees);
+        setShowFees(false);
+        setButtonTitle('Reserve');
       }
-
-
       console.log('Data Received', data.data[0]);
     }).catch(error => {
       console.log('request Cost data error', error);
     });
-    return () => { ignore = true; };
-    // return () => {
-    //   setShowFees(false);
-    // };
+    // return () => { ignore = true; };
+    return () => {
+      setShowFees(true);
+    };
 
   };
+
+  /***
+   * makes reservation ob button click
+  */
+
+
+  const makeReservation = () => {
+    let query = {
+      apptId: appartmentID,
+      startDate: reservationDates.startDate,
+      endDate: reservationDates.endDate,
+      fee: {
+        nights: fees.nights,
+        cleanigFee: fees.cleanigFee * fees.nights,
+        price: fees.price * fees.nights,
+        serviceFee: fees.serviceFee * fees.nights,
+        total: fees.total * fees.nights,
+      },
+      guests: selectedGuests
+
+    };
+    const result = axios.post('http://localhost:3001/makeReservation',{
+      params: query
+    }).then ()
+      .catch();
+  };
+
+  /**
+   * updates selected guests everu time guests anount is changed
+   */
+
+  const guestsUpdate = (adults, children, infants) => {
+    let obj = {
+      adult: adults,
+      children: children,
+      infants: infants
+
+    };
+    console.log(obj);
+    setSelectedGuests(obj);
+  };
+
 
 
   return (
@@ -134,9 +178,9 @@ function Example () {
           <Price/>
           <Rating/>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
-          <Guests guests = {guests}/>
-          <Button/>
-          {showFees ? <Fees fees = {fees} /> : null}
+          <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>
+          <Button buttonTitle = {buttonTitle} makeReservation={makeReservation} />
+          {showFees ? null : <Fees fees = {fees} /> }
         </div>
       )}
     </div>

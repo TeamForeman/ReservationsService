@@ -5,10 +5,10 @@ const Fees = (props) => {
   return (
     <div>
       <a>You won't be charged yet</a>
-      <p>{props.prise} X {props.nights} nights  $ {props.fees.appartmentCost}</p>
-      <p>Cleaning Fee $ {props.fees.cleanigFee}</p>
-      <p>Service Fee $ {props.fees.ServiceFee}</p>
-      <p>Total $ {props.fees.total}</p>
+      <p>{props.fees.price} X {props.fees.nights} nights  $ {props.fees.price * props.fees.nights}</p>
+      <p>Cleaning Fee $ {props.fees.cleanigFee * props.fees.nights}</p>
+      <p>Service Fee $ {props.fees.serviceFee * props.fees.nights}</p>
+      <p>Total $ {props.fees.total * props.fees.nights}</p>
     </div>
   );
 };

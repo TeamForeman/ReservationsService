@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Collapsible from 'react-collapsible';
 import './Guests.css';
 const Guests = (props) => {
@@ -9,6 +9,10 @@ const Guests = (props) => {
   const [children, setchildren] = useState(0);
 
   const [infants, setInfants] = useState(0);
+
+  useEffect(() => {
+    props.guestsUpdate(adults, children, infants);
+  }, [adults, children, infants]);
 
   const openColapible = ()=> {
     let content = document.getElementsByClassName('content');
