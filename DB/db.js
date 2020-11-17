@@ -21,9 +21,72 @@ let ApartmentCalendar = mongoose.Schema ({
   }
 });
 
+let ReservationTable = mongoose.Schema ({
+
+  apptId: Number,
+  startDate: Date,
+  endDate: Date,
+  fee: {
+    nights: Number,
+    cleanigFee: Number,
+    price: Number,
+    serviceFee: Number,
+    total: Number,
+  },
+  guests: {
+    adult: Number,
+    children: Number,
+    infants: Number
+  }
+});
+
+let Reservations = mongoose.model('Reservations', ReservationTable);
 let Calendar = mongoose.model('Calendar', ApartmentCalendar);
+
+let getCalendarDataByApartment = (id, callback) => {
+  Calendar.find({apartmentId: id, 'CalendarDays.available': false }, (err, result) => {
+    if (err) {
+      console.log('Error in DBFetch');
+      //throw (err);
+    } else {
+      callback(null, result);
+    }
+  });
+};
+
+let getCostsByAppartment = (id, callback) => {
+  console.log('here');
+  Calendar.find({apartmentId: id, 'CalendarDays.date': '2021-03-13T03:50:11.071Z'}, (err, result) => {
+    if (err) {
+      //console.log('here1');
+      console.log('Error in Costs Fetching');
+      //throw (err);
+    } else {
+      console.log(result);
+      callback (null, result);
+    }
+  });
+};
+
+let makeReservation = (params, callback) => {
+  let SaveReservation = new Reservations (params);
+
+  SaveReservation.save ((err, data) => {
+    if (err) {
+      console.log('error saving reservation Data');
+    } else {
+      console.log ('reservation data saved');
+      //callback(data);
+    }
+  });
+
+};
+
 
 module.exports = mongoose.connection;
 
 module.exports.Calendar = Calendar;
+module.exports.makeReservation = makeReservation;
 module.exports.ApartmentCalendar = ApartmentCalendar;
+module.exports.getCostsByAppartment = getCostsByAppartment;
+module.exports.getCalendarDataByApartment = getCalendarDataByApartment;

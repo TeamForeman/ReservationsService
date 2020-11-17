@@ -1,0 +1,4 @@
+.disabled-date {
+  pointer-events: none;
+  color: rgb(179, 173, 173);
+}
