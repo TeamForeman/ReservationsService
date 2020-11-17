@@ -82,20 +82,45 @@ function Example () {
 
   **/
   const endDateClick = (startDate, endDate) => {
+
     console.log('sendData');
-    console.log(startDate , " ", endDate);
+    console.log(startDate, " ", endDate);
+    let ignore = false;
     let query = {
       startDate: startDate,
       endDate: endDate,
       appartmentID: appartmentID
     };
+    let nights = (endDate - startDate) / (1000 * 60 * 60 * 24);
+    console.log(nights);
     const result = axios.get('http://localhost:3001/reservationCost',{
       params: query
     }).then (data => {
-      console.log('Data Received', data);
+      if (nights >= 1) {
+        let receivedObj = data.data[0];
+        let objFees = {
+          nights: nights,
+          price: receivedObj.CalendarDays.apartmentCost,
+          cleanigFee: receivedObj.CalendarDays.cleaningCost,
+          serviceFee: receivedObj.CalendarDays.serviceCost,
+          total: receivedObj.CalendarDays.totalCost
+        };
+        if (!ignore && objFees.total !== undefined) {
+        }
+        setShowFees(objFees);
+        console.log('obj', fees," ", objFees);
+        setShowFees(true);
+      }
+
+
+      console.log('Data Received', data.data[0]);
     }).catch(error => {
       console.log('request Cost data error', error);
     });
+    return () => { ignore = true; };
+    // return () => {
+    //   setShowFees(false);
+    // };
 
   };
 
@@ -111,7 +136,7 @@ function Example () {
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
           <Guests guests = {guests}/>
           <Button/>
-          <Fees prive = {5} nights = {5} fees = {fees} />
+          {showFees ? <Fees fees = {fees} /> : null}
         </div>
       )}
     </div>
