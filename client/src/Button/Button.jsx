@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './Button.css';
 
 const Button = (props) => {
   const buttonTytle = props.buttonTitle;
@@ -12,7 +13,7 @@ const Button = (props) => {
   };
   return (
     <div>
-      <button onClick = {buttonClick} >{buttonTytle}</button>
+      <button onClick = {buttonClick} className = "btn-red">{buttonTytle}</button>
     </div>
   );
 };

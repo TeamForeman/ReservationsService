@@ -26,7 +26,7 @@ const Guests = (props) => {
 
   return (
     <div>
-      <button type="button" class="collapsible" onClick = {openColapible}>Guests</button>
+      <button type="button" className="main_button" onClick = {openColapible}>GUESTS</button>
       <div className="content">
         <p>Adults
           <button className = "button button1"

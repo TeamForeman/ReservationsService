@@ -1,6 +1,28 @@
 
 
-.button {border-radius: 50%;}
+.button {
+  border-radius: 50%;
+}
+
+
+.main_button {
+  /* border-radius: 50%; */
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: -1px;
+  border-radius: 0px 0px 8px 8px;
+  border-color: rgb(176, 176, 176);
+  border-width: 1px;
+  z-index: 0;
+  font-family: 'Roboto';
+  font-size: 12px;
+  letter-spacing: 0.7px;
+  outline: none;
+  top: 65%;
+  left: 39%;
+}
+
 
 .collapsible {
   cursor: pointer;
@@ -15,5 +37,4 @@
   padding: 0 18px;
   display: none;
   overflow: hidden;
-  background-color: #f1f1f1;
 }

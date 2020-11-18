@@ -17,22 +17,24 @@
 
 
 .box {
+  /* box-sizing: border-box; */
   width: 400px;
-  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 5px;
   border: 1px solid rgb (221,221,221);
   border-radius: 12px;
   padding: 24px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   margin-top: 48px;
-  --gp-selection-max-width: 1128px;
+
 }
 
 #one {
   position: fixed;
-  top: 80px;
-  left: 10px;
-  background-color: lightblue;
+  top: 180px;
+  right: 10px;
 
 
 }

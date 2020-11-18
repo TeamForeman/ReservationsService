@@ -170,11 +170,11 @@ function Example () {
 
 
   return (
-    <div className ="box">
+    <div className ="box" id = "one">
       {isBusy .loading ? (
         'Loading...'
       ) : (
-        <div>
+        <div >
           <Price/>
           <Rating/>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
