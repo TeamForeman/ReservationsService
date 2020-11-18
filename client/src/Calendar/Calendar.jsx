@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from 'react';
-import DatePicker from 'react-DatePicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './Calendar.css';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import { DateRangePicker } from 'react-dates';
 import axios from 'axios';
+import moment from 'moment';
 
 const CalendarComponent = (props) => {
   //console.log(props.data.obj);
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(moment());
+  const [endDate, setEndDate] = useState(moment());
   const [disabledDays, setDisabledDays] = useState({});
   //when start day is selected this object will hold start day and max end day
   //which is day before first booked day after start day
@@ -43,7 +44,7 @@ const CalendarComponent = (props) => {
     after start date
   **/
   const OnSelectStartDate = () => {
-    let date = startDate.getTime();
+    let date = startDate.valueOf();
     let index = findIndex(date);
     let obj = {};
     obj.startDate = date;
@@ -75,37 +76,57 @@ const CalendarComponent = (props) => {
 
 
   return (
-    <div className="outer-box">
-      <DatePicker className = "box-border-start"
-        selected={startDate}
-        onChange={date => setStartDate(date)}
-        selectsStart
+
+    <div>
+      <DateRangePicker
+        //focusedInput={startDate}
+        open={open}
         startDate={startDate}
         endDate={startDate}
-        minDate={startDate}
-        monthsShown={2}
-        //on on render cliend receives data about booked days and those days
-        //are shown on the window as disabled
-        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
-      />
-      <DatePicker className = "box-border-end"
-        selected={endDate}
-        onChange={date=>setEndDate(date)}
-        selectsEnd
-        //on on render cliend receives data about booked days and those days
-        //are shown on the window as disabled
-        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
-        //when client selects start day
-        //this shows only available and days as active
-        dayClassName ={date => disableOnSelect.startDate !== undefined ?
+        numberOfMonths={2}
+        block={false}
+        small={false}
+        anchorDirection={'left'}
+        displayFormat={'MM/DD/YYYY'}
+        orientation={'horizontal'}
+        isDayBlocked={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
+        isDayBlocked={date => disableOnSelect.startDate !== undefined ?
           date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date' : null : null
         }
-        startDate={startDate}
-        endDate={endDate}
-        monthsShown={2}
-        minDate={startDate}
       />
     </div>
+
+    // <div className="outer-box">
+    //   <DatePicker className = "box-border-start"
+    //     selected={startDate}
+    //     onChange={date => setStartDate(date)}
+    //     selectsStart
+    //     startDate={startDate}
+    //     endDate={startDate}
+    //     minDate={startDate}
+    //     monthsShown={2}
+    //     //on on render cliend receives data about booked days and those days
+    //     //are shown on the window as disabled
+    //     dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
+    //   />
+    //   <DatePicker className = "box-border-end"
+    //     selected={endDate}
+    //     onChange={date=>setEndDate(date)}
+    //     selectsEnd
+    //     //on on render cliend receives data about booked days and those days
+    //     //are shown on the window as disabled
+    //     dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
+    //     //when client selects start day
+    //     //this shows only available and days as active
+    //     dayClassName ={date => disableOnSelect.startDate !== undefined ?
+    //       date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date' : null : null
+    //     }
+    //     startDate={startDate}
+    //     endDate={endDate}
+    //     monthsShown={2}
+    //     minDate={startDate}
+    //   />
+    // </div>
   );
 };
 

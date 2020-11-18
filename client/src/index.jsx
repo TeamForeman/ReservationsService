@@ -11,7 +11,7 @@ import Button from './Button/Button.jsx';
 import Rating from './Rating/Rating.jsx';
 import beforeRender from './Hooks/beforerender.js';
 import Fees from './Fees/Fees.jsx';
-
+import moment from 'moment';
 
 // eslint-disable-next-line func-style
 function Example () {
@@ -34,10 +34,12 @@ function Example () {
     let objDisabledDates = {};
     let arr = [];
     for (let date of dates) {
-      let dateSubs = date.substring(0, 10);
-      let dateFormated = date.substring(5, 7) + '/' + date.substring(8, 10)
-      + '/' + date.substring(0, 4);
-      let time = new Date(dateFormated).getTime();
+      // let dateSubs = date.substring(0, 10);
+      // let dateFormated = date.substring(5, 7) + '' + date.substring(8, 10)
+      // + '/' + date.substring(0, 4);
+      // let time = new Date(dateFormated).getTime();
+      let time = date.valueOf();
+      console.log('moment value Of', time);
       arr.push(time);
       objDisabledDates[time] = true;
     }
