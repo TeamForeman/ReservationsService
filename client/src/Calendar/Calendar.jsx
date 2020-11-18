@@ -15,7 +15,9 @@ const CalendarComponent = (props) => {
 
   //received disabled array data from props and dets {disabledDays} to it
   useEffect(() => {
+
     setDisabledDays(props.data.obj);
+    console.log('disdays', disabledDays);
   } );
 
   //finds index in a sorted array which contains first greater number

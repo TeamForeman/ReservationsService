@@ -11,7 +11,7 @@ import Button from './Button/Button.jsx';
 import Rating from './Rating/Rating.jsx';
 import beforeRender from './Hooks/beforerender.js';
 import Fees from './Fees/Fees.jsx';
-import moment from 'moment';
+
 
 // eslint-disable-next-line func-style
 function Example () {
@@ -30,12 +30,13 @@ function Example () {
     saves them into sorted array and object to pass it to calendar
   **/
   const disaBleDays = (dates) => {
+
     //2020-11-14T03:50:11.071Z
     let objDisabledDates = {};
     let arr = [];
     for (let date of dates) {
       let dateSubs = date.substring(0, 10);
-      let dateFormated = date.substring(5, 7) + '' + date.substring(8, 10)
+      let dateFormated = date.substring(5, 7) + '/' + date.substring(8, 10)
       + '/' + date.substring(0, 4);
       let time = new Date(dateFormated).getTime();
       arr.push(time);
@@ -45,6 +46,7 @@ function Example () {
     obj.obj = objDisabledDates;
     arr.sort();
     obj.arr = arr;
+    //console.log('arr',arr);
     return obj;
   };
 
@@ -77,6 +79,9 @@ function Example () {
     request.fail(function(jqXHR, textStatus) {
       alert('Requset Fetch Booked days failed:' + textStatus);
     });
+    return () => {
+      setBusy({loading: true});
+    };
   }, []);
 
 
@@ -87,7 +92,7 @@ function Example () {
   **/
 
   const endDateClick = (startDate, endDate) => {
-    setReservationDates({startDate:startDate, endDate:endDate});
+    setReservationDates({startDate: startDate, endDate: endDate});
     setShowFees(true);
     console.log('sendData');
     console.log(startDate, " ", endDate);
