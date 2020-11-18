@@ -17,10 +17,13 @@
   z-index: 0;
   font-family: 'Roboto';
   font-size: 12px;
+  background: white;
   letter-spacing: 0.7px;
   outline: none;
   top: 65%;
   left: 39%;
+  padding: 20px;
+  width:90%;
 }
 
 

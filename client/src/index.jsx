@@ -175,8 +175,10 @@ function Example () {
         'Loading...'
       ) : (
         <div >
-          <Price/>
-          <Rating/>
+          <div className="price-rating">
+            <Price/>
+            <Rating/>
+          </div>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
           <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>
           <Button buttonTitle = {buttonTitle} makeReservation={makeReservation} />

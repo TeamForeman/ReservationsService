@@ -1,18 +1,18 @@
 .btn-red {
-  background: rgb(187, 31, 31);
+  background:#e55459;
   /* font-weight: bold; */
   border-radius: 8px;
   padding: 10px 10px;
   border: 0;
   font-family: 'Roboto';
-  font-size: 12px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700px;
   color: white;
   letter-spacing: 0.7px;
   outline: none;
-  width:80%;
-
-
+  width:90%;
+  margin: 10px;
+  /* padding: 10px; */
 }
 .btn-red:hover{
   background: rgb(197, 128, 128);

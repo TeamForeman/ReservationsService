@@ -4,8 +4,9 @@ const Rating = (props) => {
   const rating = 5.0;
   const count = 15;
   return (
-    <div>
-      <p>{rating} ({count})</p>
+    <div className="rating-part">
+      <p className="rating">{rating}</p>
+      <p className="count">({count})</p>
     </div>
   );
 };
