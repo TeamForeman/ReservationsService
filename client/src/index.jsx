@@ -180,9 +180,9 @@ function Example () {
         'Loading...'
       ) : (
         <div >
-          <div className="price-rating">
-            <Price/>
-            <Rating/>
+          <div className="price-rating-grid">
+            <Price className="price"/>
+            <Rating className="rating"/>
           </div>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
           <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>

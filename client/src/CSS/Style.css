@@ -29,7 +29,7 @@
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   margin-top: 48px;
   font-family: 'Roboto';
-
+  position: sticky;
 }
 .price-rating {
   width: 90%;
@@ -45,5 +45,32 @@
 
   right: 10px;
 
+
+}
+
+.price-rating-grid {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 50% auto  10%;
+  grid-template-rows: 30px;
+  font-family: 'Roboto';
+  padding: 10px;
+
+
+
+}
+
+.price {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start:1;
+  grid-row-end: 2;
+
+}
+.rating {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start:1;
+  grid-row-end: 2;
 
 }

@@ -4,9 +4,9 @@ import './Price.css';
 const Price = ({props}) => {
   const price = 50;
   return (
-    <div className="price">
-      <p className="price-part"> ${price}</p>
-      <p className="night">/night</p>
+    <div>
+      <div className="price-part"> ${price} <span className="night">/night </span></div>
+
     </div>
   );
 };
