@@ -15,7 +15,9 @@ const CalendarComponent = (props) => {
 
   //received disabled array data from props and dets {disabledDays} to it
   useEffect(() => {
+
     setDisabledDays(props.data.obj);
+    console.log('disdays', disabledDays);
   } );
 
   //finds index in a sorted array which contains first greater number
@@ -75,8 +77,8 @@ const CalendarComponent = (props) => {
 
 
   return (
-    <>
-      <DatePicker
+    <div className="outer-box">
+      <DatePicker className = "box-border-start"
         selected={startDate}
         onChange={date => setStartDate(date)}
         selectsStart
@@ -88,7 +90,7 @@ const CalendarComponent = (props) => {
         //are shown on the window as disabled
         dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
       />
-      <DatePicker
+      <DatePicker className = "box-border-end"
         selected={endDate}
         onChange={date=>setEndDate(date)}
         selectsEnd
@@ -105,7 +107,7 @@ const CalendarComponent = (props) => {
         monthsShown={2}
         minDate={startDate}
       />
-    </>
+    </div>
   );
 };
 

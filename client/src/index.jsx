@@ -30,6 +30,7 @@ function Example () {
     saves them into sorted array and object to pass it to calendar
   **/
   const disaBleDays = (dates) => {
+
     //2020-11-14T03:50:11.071Z
     let objDisabledDates = {};
     let arr = [];
@@ -45,6 +46,7 @@ function Example () {
     obj.obj = objDisabledDates;
     arr.sort();
     obj.arr = arr;
+    //console.log('arr',arr);
     return obj;
   };
 
@@ -77,6 +79,9 @@ function Example () {
     request.fail(function(jqXHR, textStatus) {
       alert('Requset Fetch Booked days failed:' + textStatus);
     });
+    return () => {
+      setBusy({loading: true});
+    };
   }, []);
 
 
@@ -87,7 +92,7 @@ function Example () {
   **/
 
   const endDateClick = (startDate, endDate) => {
-    setReservationDates({startDate:startDate, endDate:endDate});
+    setReservationDates({startDate: startDate, endDate: endDate});
     setShowFees(true);
     console.log('sendData');
     console.log(startDate, " ", endDate);
@@ -170,13 +175,15 @@ function Example () {
 
 
   return (
-    <div className ="box">
+    <div className ="box" id = "one">
       {isBusy .loading ? (
         'Loading...'
       ) : (
-        <div>
-          <Price/>
-          <Rating/>
+        <div >
+          <div className="price-rating-grid">
+            <Price className="price"/>
+            <Rating className="rating"/>
+          </div>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
           <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>
           <Button buttonTitle = {buttonTitle} makeReservation={makeReservation} />

@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import './Price.css';
 
 const Price = ({props}) => {
   const price = 50;
   return (
     <div>
-      <p > ${price}/night </p>
+      <div className="price-part"> ${price} <span className="night">/night </span></div>
+
     </div>
   );
 };

@@ -1,0 +1,95 @@
+.content-style-grid {
+  display: grid;
+  grid-template-columns: 50% auto  25%;
+  grid-template-rows: 30px 30px 30px 20px 30px;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: lighter;
+  letter-spacing: 0.7px;
+  padding: 10px;
+  margin-top: 25px;
+
+
+}
+
+.price-text {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start:1;
+  grid-row-end: 2;
+
+}
+.price-number {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start:1;
+  grid-row-end: 2;
+
+}
+
+.cleaning-text {
+  text-decoration: underline;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start:2;
+  grid-row-end: 3;
+}
+.cleaning-number {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start:2;
+  grid-row-end: 3;
+
+}
+.service-text {
+  text-decoration: underline;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start:3;
+  grid-row-end: 4;
+}
+.service-number {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start:3;
+  grid-row-end: 4;
+
+}
+.line {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start:4;
+  grid-row-end: 5;
+  color: black;
+  background-color: black;
+  height: .5;
+  border-color : black;
+}
+.total-text {
+  font-weight: bold;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start:5;
+  grid-row-end: 6;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+}
+
+.total-number {
+  font-weight: bold;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start:5;
+  grid-row-end: 6;
+  text-decoration-line: underline;
+  text-decoration-style: double;
+
+}
+.text {
+
+  margin-left: 70px;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: lighter;
+  letter-spacing: 0.7px;
+}

@@ -5,7 +5,7 @@ const Rating = (props) => {
   const count = 15;
   return (
     <div>
-      <p>{rating} ({count})</p>
+      <div className="rating-part">{rating} <span className="count">({count})</span></div>
     </div>
   );
 };

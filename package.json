@@ -24,10 +24,12 @@
     "faker": "^5.1.0",
     "jquery": "^3.5.1",
     "loader-runner": "^4.1.0",
+    "moment": "^2.29.1",
     "mongoose": "^5.10.14",
     "react": "^17.0.1",
     "react-collapsible": "^2.8.1",
     "react-datepicker": "^3.3.0",
+    "react-dates": "^21.8.0",
     "react-dom": "^17.0.1",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.2"
