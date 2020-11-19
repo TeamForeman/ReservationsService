@@ -44,6 +44,7 @@
   padding: 0 18px;
   display: none;
   overflow: hidden;
+  width: 90%;
 }
 
 .content-style-grid {
@@ -56,6 +57,7 @@
   letter-spacing: 0.7px;
   padding: 10px;
   margin-top: 25px;
+  width: 90%;
 
 }
 .box-width {
@@ -136,6 +138,7 @@
   grid-row-end: 4;
 }
 .buttom-text {
+  width: 90%;
   font-family: 'Roboto';
   font-size: 12px;
   font-weight: lighter;

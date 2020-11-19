@@ -28,7 +28,7 @@ const Guests = (props) => {
   };
 
   return (
-    <div>
+    <div >
       <button type="button" className="main_button" onClick = {openColapible}>GUESTS <i class="arrow down"></i></button>
       <div className="content">
         <div className ="content-style-grid">
@@ -82,9 +82,9 @@ const Guests = (props) => {
 
 
         </div>
-        <a className = "buttom-text">
+        {/* <div className = "buttom-text">
           {guests} maximum. Infants don’t count toward the number of guests.
-        </a>
+        </div> */}
       </div>
 
     </div>
