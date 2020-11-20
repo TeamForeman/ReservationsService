@@ -5,13 +5,19 @@ const bodyParser = require('body-parser');
 //app.use(express.static(__dirname + '/../client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
-
+const path = require('path');
 let db = require('../DB/db.js');
 let data = require('../DB/data.js');
 
+app.get('/listing/*', (req, res) => {
 
+
+  res.sendFile (path.join(__dirname, '../client/dist/index.html'));
+
+});
 
 app.get('/calendar', (req, res) => {
+  console.log(req.query.appartmentID);
   let appartmentID = req.query.ApartmentId;
 
   db.getCalendarDataByApartment(appartmentID, (err, data) => {

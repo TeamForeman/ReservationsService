@@ -60,14 +60,14 @@ function Example () {
     let id = urlLocation[urlLocation.length - 1];
     //console.log('AppartmentId', id);
 
-    //setAppartmentID(id);
+    setAppartmentID(id);
     //console.log('requst made');
     setBusy({loading: true});
 
     let request = $.ajax ({
       url: 'http://localhost:3001/calendar',
       method: 'GET',
-      data: {'ApartmentId': 3}
+      data: {'ApartmentId': id}
     });
     request.done(function(data) {
       let arr = [];
@@ -189,7 +189,7 @@ function Example () {
       ) : (
         <div >
           <div className="price-rating-grid">
-            <Price className="price" />
+            <Price className="price" price={price}/>
             <Rating className="rating" />
           </div>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
