@@ -9,7 +9,6 @@ import axios from 'axios';
 import Price from './Price/Price.jsx';
 import Button from './Button/Button.jsx';
 import Rating from './Rating/Rating.jsx';
-import beforeRender from './Hooks/beforerender.js';
 import Fees from './Fees/Fees.jsx';
 
 
@@ -20,11 +19,12 @@ function Example () {
   const [selectedGuests, setSelectedGuests] = useState({});
   const [isBusy, setBusy] = useState({loading: true});
   const [caldendarData, setCalendarData] = useState({});
-  const [appartmentID, setAppartmentID] = useState(1);
+  const [appartmentID, setAppartmentID] = useState(1 + Math.floor(Math.random() * 99));
   const [fees, setFees] = useState({});
   const [showFees, setShowFees] = useState(true);
   const [buttonTitle, setButtonTitle] = useState('Check Availability');
   const [reservationDates, setReservationDates] = useState({startDate: '', endDate: ''});
+  const [price, setPrice] = useState(0);
   /*
     this function received dates from server and changes format and
     saves them into sorted array and object to pass it to calendar
@@ -56,22 +56,31 @@ function Example () {
     and sets this data to
   **/
   useEffect(() => {
-    console.log('requst made');
+    let urlLocation = window.location.pathname.split('/');
+    let id = urlLocation[urlLocation.length - 1];
+    //console.log('AppartmentId', id);
+
+    //setAppartmentID(id);
+    //console.log('requst made');
     setBusy({loading: true});
 
     let request = $.ajax ({
       url: 'http://localhost:3001/calendar',
       method: 'GET',
-      data: {'ApartmentId': appartmentID}
+      data: {'ApartmentId': 3}
     });
     request.done(function(data) {
       let arr = [];
+      //console.log('first data received',data);
+      let price = 0;
       for (let obj of data) {
         arr.push(obj.CalendarDays.date);
+        price = obj.CalendarDays.apartmentCost;
       }
       setGuests(data[0].CalendarDays.totalGuests);
       let disabledDays = disaBleDays(arr);
       setCalendarData( disabledDays);
+      setPrice(price);
       setBusy({loading: false});
 
     });
@@ -94,15 +103,15 @@ function Example () {
   const endDateClick = (startDate, endDate) => {
     setReservationDates({startDate: startDate, endDate: endDate});
     setShowFees(true);
-    console.log('sendData');
-    console.log(startDate, " ", endDate);
+    //console.log('sendData');
+    //console.log(startDate, " ", endDate);
     let query = {
       startDate: startDate,
       endDate: endDate,
       appartmentID: appartmentID
     };
     let nights = (endDate - startDate) / (1000 * 60 * 60 * 24);
-    console.log(nights);
+    //console.log(nights);
     const result = axios.get('http://localhost:3001/reservationCost',{
       params: query
     }).then (data => {
@@ -116,13 +125,13 @@ function Example () {
           total: receivedObj.CalendarDays.totalCost
         };
         setFees(objFees);
-        console.log('obj', fees," ", objFees, ' ', showFees);
+        //console.log('obj', fees," ", objFees, ' ', showFees);
         setShowFees(false);
         setButtonTitle('Reserve');
       }
-      console.log('Data Received', data.data[0]);
+      //console.log('Data Received', data.data[0]);
     }).catch(error => {
-      console.log('request Cost data error', error);
+      //console.log('request Cost data error', error);
     });
     // return () => { ignore = true; };
     return () => {
@@ -168,10 +177,9 @@ function Example () {
       infants: infants
 
     };
-    console.log(obj);
+    //console.log(obj);
     setSelectedGuests(obj);
   };
-
 
 
   return (
@@ -181,8 +189,8 @@ function Example () {
       ) : (
         <div >
           <div className="price-rating-grid">
-            <Price className="price"/>
-            <Rating className="rating"/>
+            <Price className="price" />
+            <Rating className="rating" />
           </div>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
           <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>

@@ -22,7 +22,7 @@ const Guests = (props) => {
       document.getElementsByClassName('arrow').item(0).classList.remove("up");document.getElementsByClassName('arrow').item(0).classList.add("down");
     } else {
       content.item(0).style.display = 'block';
-      console.log(document.getElementsByClassName('arrow').item(0).classList);
+      //console.log(document.getElementsByClassName('arrow').item(0).classList);
       document.getElementsByClassName('arrow').item(0).classList.remove("down");document.getElementsByClassName('arrow').item(0).classList.add("up");
     }
   };
