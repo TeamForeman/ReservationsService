@@ -12,32 +12,26 @@ let data = require('../DB/data.js');
 
 
 app.get('/calendar', (req, res) => {
-  //console.log(req.query.ApartmentId);
   let appartmentID = req.query.ApartmentId;
+
   db.getCalendarDataByApartment(appartmentID, (err, data) => {
     if (err) {
       res.sendStatus(400);
     } else {
-      //console.log(data);
+      console.log(data);
       res.status(201).json(data);
     }
   });
 });
 
 app.get('/reservationCost', (req, res) => {
-  // console.log('reservationCost');
-  // console.log(req.query);
-  // console.log('reservationCostend');
   let appartmentID = (Number) (req.query.appartmentID);
-
   db.getCostsByAppartment(appartmentID, (err, data) => {
-
     if (err) {
       console.log(appartmentID);
       res.sendStatus(400);
     } else {
       console.log(appartmentID);
-      //console.log(data);
       res.status(201).json(data);
     }
   });
