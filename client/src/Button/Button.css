@@ -1,4 +1,4 @@
-.btn-red {
+.btn-red-em {
   background:#e55459;
   /* font-weight: bold; */
   border-radius: 8px;
@@ -14,7 +14,7 @@
   margin-top:  10px;
   padding: 10px;
 }
-.btn-red:hover{
+.btn-red-em:hover{
   background: rgb(197, 128, 128);
   cursor: pointer;
 }

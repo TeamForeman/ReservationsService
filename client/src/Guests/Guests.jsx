@@ -15,67 +15,71 @@ const Guests = (props) => {
   }, [adults, children, infants]);
 
   const openColapible = ()=> {
-    let content = document.getElementsByClassName('content');
-    //console.log(content.item(0).style.display);
+    let content = document.getElementsByClassName('content-em');
+
     if (content.item(0).style.display === 'block') {
       content.item(0).style.display = 'none';
-      document.getElementsByClassName('arrow').item(0).classList.remove("up");document.getElementsByClassName('arrow').item(0).classList.add("down");
+      document.getElementsByClassName('arrow-em').item(0).classList.remove("up-em");
+
+      document.getElementsByClassName('arrow-em').item(0).classList.add("down-em");
     } else {
       content.item(0).style.display = 'block';
+      //console.log(document.getElementsByClassName('arrow-em').item(0).classList);
       //console.log(document.getElementsByClassName('arrow').item(0).classList);
-      document.getElementsByClassName('arrow').item(0).classList.remove("down");document.getElementsByClassName('arrow').item(0).classList.add("up");
+      document.getElementsByClassName('arrow-em').item(0).classList.remove("down-em");
+      document.getElementsByClassName('arrow-em').item(0).classList.add("up-em");
     }
   };
 
   return (
     <div >
-      <button type="button" className="main_button" onClick = {openColapible}>GUESTS <i class="arrow down"></i></button>
-      <div className="content">
-        <div className ="content-style-grid">
+      <button type="button-em" className="main_button-em" onClick = {openColapible}>GUESTS <i className="arrow-em down-em"></i></button>
+      <div className="content-em">
+        <div className ="content-style-grid-em">
 
-          <div className = "adults-text">
+          <div className = "adults-text-em">
             <span > Adults</span>
           </div>
-          <div className="adults-button-minus" >
-            <button className = "button"
+          <div className="adults-button-minus-em" >
+            <button className = "button-em"
               onClick={() => adults > 1 ? setAdults(adults - 1) : null}
             > - </button>
           </div>
-          <span className ="adults-number">{adults}</span>
-          <div className="adults-button-plus">
-            <button className = "button"
+          <span className ="adults-number-em">{adults}</span>
+          <div className="adults-button-plus-em">
+            <button className = "button-em"
               onClick={adults + children < guests ? () => setAdults(adults + 1) : null}
             > + </button>
           </div>
 
 
-          <div className = "children-text">
+          <div className = "children-text-em">
             <span >children</span>
           </div>
-          <div className="children-button-minus">
-            <button className = "button"
+          <div className="children-button-minus-em">
+            <button className = "button-em"
               onClick={() => children > 0 ? setchildren(children - 1) : null}
             > - </button>
           </div>
-          <span className ="children-number">{children}</span>
-          <div className="children-button-plus">
-            <button className = "button"
+          <span className ="children-number-em">{children}</span>
+          <div className="children-button-plus-em">
+            <button className = "button-em"
               onClick={adults + children < guests ? () => setchildren(children + 1) : null}
             > + </button>
           </div>
 
 
-          <div className = "infants-text">
+          <div className = "infants-text-em">
             <span >Infants</span>
           </div>
-          <div className="infants-button-minus">
-            <button className = "button"
+          <div className="infants-button-minus-em">
+            <button className = "button-em"
               onClick={() => infants > 0 ? setInfants(infants - 1) : null}
             > - </button>
           </div>
-          <span className ="infants-number">{infants}</span>
-          <div className="infants-button-plus">
-            <button className = "button"
+          <span className ="infants-number-em">{infants}</span>
+          <div className="infants-button-plus-em">
+            <button className = "button-em"
               onClick={infants < guests * 3 ? () => setInfants(infants + 1) : null}
             > + </button>
           </div>

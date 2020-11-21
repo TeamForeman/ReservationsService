@@ -1,6 +1,6 @@
 
 
-.button {
+.button-em {
   border-radius: 50%;
   background:white;
   border-color: rgb(92, 90, 90);
@@ -9,7 +9,7 @@
 }
 
 
-.main_button {
+.main_button-em {
   /* border-radius: 50%; */
   top: 0px;
   left: 0px;
@@ -31,7 +31,7 @@
 }
 
 
-.collapsible {
+.collapsible-em {
   cursor: pointer;
   padding: 18px;
   border: none;
@@ -40,13 +40,13 @@
   font-size: 15px;
 }
 
-.content {
+.content-em {
   padding: 0 18px;
   display: none;
   overflow: hidden;
 }
 
-.content-style-grid {
+.content-style-grid-em {
   display: grid;
   grid-template-columns: 30% auto 15% 15% 15%;
   grid-template-rows: 50px 50px 50px;
@@ -59,84 +59,84 @@
   width: 90%;
 
 }
-.box-width {
+.box-width-em {
   width: 90%;
 }
 
-.adults-text{
+.adults-text-em{
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start:1;
   grid-row-end: 2;
 }
 
-.adults-button-minus{
+.adults-button-minus-em{
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start:1;
   grid-row-end: 2;
 }
-.adults-number{
+.adults-number-em{
   grid-column: 4;
   grid-row: 1 / span 1;
 }
-.adults-button-plus{
+.adults-button-plus-em{
   grid-column: 5;
   grid-row: 1 / span 1;
 }
 
-.children-text{
+.children-text-em{
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
 }
 
-.children-button-minus{
+.children-button-minus-em{
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
 }
-.children-number{
+.children-number-em{
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 2;
   grid-row-end: 3;
 }
-.children-button-plus{
+.children-button-plus-em{
   grid-column-start: 5;
   grid-column-end: 6;
   grid-row-start: 2;
   grid-row-end: 3;
 }
 
-.infants-text{
+.infants-text-em{
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   grid-row-end: 4;
 }
 
-.infants-button-minus{
+.infants-button-minus-em{
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 3;
   grid-row-end: 4;
 }
-.infants-number{
+.infants-number-em{
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 3;
   grid-row-end: 4;
 }
-.infants-button-plus{
+.infants-button-plus-em{
   grid-column-start: 5;
   grid-column-end: 6;
   grid-row-start: 3;
   grid-row-end: 4;
 }
-.buttom-text {
+.buttom-text-em {
   width: 90%;
   font-family: 'Roboto';
   font-size: 12px;
@@ -144,7 +144,7 @@
   letter-spacing: 0.7px;
 }
 
-.arrow {
+.arrow-em {
   border: solid black;
   border-width: 0 2px 2px 0;
   display: inline-block;
@@ -152,12 +152,12 @@
   margin-left: 5px;
 }
 
-.down {
+.down-em {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
 
-.up {
+.up-em {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
 }

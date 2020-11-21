@@ -1,10 +1,10 @@
-.row {
+.row-em {
   color: aqua;
   display: inline;
   justify-content: space-between;
 }
 
-.panel {
+.panel-em {
   position: -webkit-sticky;
   position: sticky;
   top: 20px;
@@ -16,7 +16,7 @@
 }
 
 
-.box {
+.box-em {
   /* box-sizing: border-box; */
   width: 25%;
   display: flex;
@@ -30,8 +30,9 @@
   margin-top: 48px;
   font-family: 'Roboto';
   position: sticky;
+  background:white;
 }
-.price-rating {
+.price-rating-em {
   width: 90%;
   display: flex;
   flex-direction: row;
@@ -39,7 +40,7 @@
   align-items: flex-end;
 }
 
-#one {
+#one-em {
   position: fixed;
   top: 180px;
 
@@ -48,7 +49,7 @@
 
 }
 
-.price-rating-grid {
+.price-rating-grid-em {
   width: 90%;
   display: grid;
   grid-template-columns: 50% auto  10%;
@@ -60,14 +61,14 @@
 
 }
 
-.price {
+.price-em {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start:1;
   grid-row-end: 2;
 
 }
-.rating {
+.rating-em {
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start:1;

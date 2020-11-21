@@ -16,7 +16,7 @@ app.get('/listing/*', (req, res) => {
 
 });
 
-app.get('/calendar', (req, res) => {
+app.get('/api/reservation/calendar', (req, res) => {
   console.log(req.query.appartmentID);
   let appartmentID = req.query.ApartmentId;
 
@@ -30,7 +30,7 @@ app.get('/calendar', (req, res) => {
   });
 });
 
-app.get('/reservationCost', (req, res) => {
+app.get('/api/reservation/reservationCost', (req, res) => {
   let appartmentID = (Number) (req.query.appartmentID);
   db.getCostsByAppartment(appartmentID, (err, data) => {
     if (err) {
@@ -44,7 +44,7 @@ app.get('/reservationCost', (req, res) => {
 });
 
 
-app.post('/makeReservation', (req, res) => {
+app.post('/api/reservation/makeReservation', (req, res) => {
   console.log('makeReservation');
   console.log(req.body.params);
   let params = req.body.params;

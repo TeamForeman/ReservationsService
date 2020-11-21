@@ -1,11 +1,11 @@
 
-.outer-box {
+.outer-box-em {
   display: flex;
   flex-direction: row;
   width: 90%;
 }
 
-.box-border-start {
+.box-border-start-em {
   border-color: rgb(176, 176, 176);
   top: -1px;
   left: 0px;
@@ -19,7 +19,7 @@
   padding: 20px;
   width:100%;
 }
-.box-border-end {
+.box-border-end-em {
   border-color: rgb(176, 176, 176);
   top: -1px;
   left: 0px;
@@ -34,7 +34,7 @@
   width:100%;
 }
 
-.main_button {
+.main_button-em {
   /* border-radius: 50%; */
   top: 0px;
   left: 0px;
@@ -53,7 +53,7 @@
   padding: 20px;
   width:80%;
 }
-#date1 {
+#date1-em {
   margin-left:160px;
 }
 
@@ -125,7 +125,7 @@
     position: fixed;
     right: 10px;
   }
-  .disabled-date {
+  .disabled-date-em {
     pointer-events: none;
     color: rgb(179, 173, 173);
   }

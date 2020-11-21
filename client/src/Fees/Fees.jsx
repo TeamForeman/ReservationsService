@@ -5,31 +5,31 @@ const Fees = (props) => {
   const Fees = {};
   return (
     <div>
-      <a className="text">You won't be charged yet</a>
-      <div className="content-style-grid">
-        <div className="price-text">
+      <a className="text-em">You won't be charged yet</a>
+      <div className="content-style-grid-em">
+        <div className="price-text-em">
           {props.fees.price} X {props.fees.nights} nights
         </div>
-        <div className="price-number">
+        <div className="price-number-em">
           ${props.fees.price * props.fees.nights}
         </div>
-        <div className="cleaning-text">
+        <div className="cleaning-text-em">
           Cleaning Fee
         </div>
-        <div className="cleaning-number">
+        <div className="cleaning-number-em">
           ${props.fees.cleanigFee * props.fees.nights}
         </div>
-        <div className="service-text">
+        <div className="service-text-em">
           Service Fee
         </div>
-        <div className="service-number">
+        <div className="service-number-em">
           ${props.fees.serviceFee * props.fees.nights}
         </div>
         {/* <hr className="line"/> */}
-        <div className="total-text">
+        <div className="total-text-em">
          Total
         </div>
-        <div className="total-number">
+        <div className="total-number-em">
           ${props.fees.total * props.fees.nights}
         </div>
       </div>
