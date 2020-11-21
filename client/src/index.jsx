@@ -201,4 +201,9 @@ function Example () {
     </div>
   );
 }
-ReactDom.render(<Example/>, document.getElementById('app') );
+
+if (document.getElementById('app')) {
+  ReactDom.render(<Example/>, document.getElementById('app'));
+} else {
+  ReactDom.render(<Example/>, document.getElementById('service2') );
+}
