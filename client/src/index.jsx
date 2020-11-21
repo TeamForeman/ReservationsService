@@ -65,7 +65,7 @@ function Example () {
     setBusy({loading: true});
 
     let request = $.ajax ({
-      url: 'http://localhost:3001/calendar',
+      url: 'http://localhost:3001/api/calendar',
       method: 'GET',
       data: {'ApartmentId': id}
     });
@@ -112,7 +112,7 @@ function Example () {
     };
     let nights = (endDate - startDate) / (1000 * 60 * 60 * 24);
     //console.log(nights);
-    const result = axios.get('http://localhost:3001/reservationCost',{
+    const result = axios.get('http://localhost:3001/api/reservationCost',{
       params: query
     }).then (data => {
       if (nights >= 1) {
@@ -160,7 +160,7 @@ function Example () {
       guests: selectedGuests
 
     };
-    const result = axios.post('http://localhost:3001/makeReservation',{
+    const result = axios.post('http://localhost:3001/api/makeReservation',{
       params: query
     }).then ()
       .catch();
