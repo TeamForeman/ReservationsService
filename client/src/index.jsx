@@ -65,7 +65,7 @@ function Example () {
     setBusy({loading: true});
 
     let request = $.ajax ({
-      url: 'http://localhost:3001/api/calendar',
+      url: '/api/reservation/calendar',
       method: 'GET',
       data: {'ApartmentId': id}
     });
@@ -112,7 +112,7 @@ function Example () {
     };
     let nights = (endDate - startDate) / (1000 * 60 * 60 * 24);
     //console.log(nights);
-    const result = axios.get('http://localhost:3001/api/reservationCost',{
+    const result = axios.get('/api/reservation/reservationCost',{
       params: query
     }).then (data => {
       if (nights >= 1) {
@@ -160,7 +160,7 @@ function Example () {
       guests: selectedGuests
 
     };
-    const result = axios.post('http://localhost:3001/api/makeReservation',{
+    const result = axios.post('/api/reservation/makeReservation',{
       params: query
     }).then ()
       .catch();
@@ -183,14 +183,14 @@ function Example () {
 
 
   return (
-    <div className ="box" id = "one">
+    <div className ="box-em" id = "one-em">
       {isBusy .loading ? (
         'Loading...'
       ) : (
         <div >
-          <div className="price-rating-grid">
-            <Price className="price" price={price}/>
-            <Rating className="rating" />
+          <div className="price-rating-grid-em">
+            <Price className="price-em" price={price}/>
+            <Rating className="rating-em" />
           </div>
           <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
           <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>

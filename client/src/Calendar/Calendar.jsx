@@ -77,8 +77,8 @@ const CalendarComponent = (props) => {
 
 
   return (
-    <div className="outer-box">
-      <DatePicker className = "box-border-start"
+    <div className="outer-box-em">
+      <DatePicker className = "box-border-start-em"
         selected={startDate}
         onChange={date => setStartDate(date)}
         selectsStart
@@ -88,19 +88,19 @@ const CalendarComponent = (props) => {
         monthsShown={2}
         //on on render cliend receives data about booked days and those days
         //are shown on the window as disabled
-        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
+        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date-em' : undefined}
       />
-      <DatePicker className = "box-border-end"
+      <DatePicker className = "box-border-end-em"
         selected={endDate}
         onChange={date=>setEndDate(date)}
         selectsEnd
         //on on render cliend receives data about booked days and those days
         //are shown on the window as disabled
-        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date' : undefined}
+        dayClassName={date => disabledDays [date.getTime()] === true ? 'disabled-date-em' : undefined}
         //when client selects start day
         //this shows only available and days as active
         dayClassName ={date => disableOnSelect.startDate !== undefined ?
-          date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date' : null : null
+          date.getTime() < disableOnSelect.startDate || date.getTime() > disableOnSelect.endDate ? 'disabled-date-em' : null : null
         }
         startDate={startDate}
         endDate={endDate}

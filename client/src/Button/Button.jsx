@@ -11,7 +11,7 @@ const Button = (props) => {
   };
   return (
     <div>
-      <button onClick = {buttonClick} className = "btn-red">{buttonTytle}</button>
+      <button onClick = {buttonClick} className = "btn-red-em">{buttonTytle}</button>
     </div>
   );
 };

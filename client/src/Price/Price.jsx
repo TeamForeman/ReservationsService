@@ -3,10 +3,10 @@ import './Price.css';
 
 const Price = (props) => {
   //const price = 50 + Math.floor(Math.random() * 100 );
-  console.log('price props',props);
+  console.log('price-em props-em',props);
   return (
     <div>
-      <div className="price-part"> ${props.price} <span className="night">/night </span></div>
+      <div className="price-part-em"> ${props.price} <span className="night-em">/night </span></div>
 
     </div>
   );
