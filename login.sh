@@ -1,0 +1,1 @@
+ssh -i "/Users/elenemikaberidze/Desktop/HackReactor/FEC/Reservation-Service/reservation_service.pem" ubuntu@ec2-18-219-68-43.us-east-2.compute.amazonaws.com
