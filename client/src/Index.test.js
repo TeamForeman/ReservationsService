@@ -44,7 +44,7 @@ describe('Fees', () => {
         total: 470,
       }
     };
-    const wrapper = shallow(<Fees props = {props} />);
+    const wrapper = shallow(<Fees props =  />);
     //calendar = calendar.find('div');
     expect(wrapper.find('')).toHaveLength(0);
   });
