@@ -49,7 +49,7 @@ const CalendarComponent = (props) => {
     let index = findIndex(date);
     let obj = {};
     obj.startDate = date;
-    obj.endDate = props.data.arr[index];
+    obj.endDate = props.data.arr[index] -1;
     setDisabledOnSelect(obj);
   };
 
