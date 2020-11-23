@@ -122,6 +122,7 @@ function Example () {
         console.log('nights1', nights);
 
         let receivedObj = data.data[0];
+        console.log('nights2', nights);
         let objFees = {
           nights: nights,
           price: receivedObj.CalendarDays.apartmentCost,
@@ -129,12 +130,12 @@ function Example () {
           serviceFee: receivedObj.CalendarDays.serviceCost,
           total: receivedObj.CalendarDays.totalCost
         };
-        console.log('nights2', nights);
-        setFees(objFees);
         console.log('nights3', nights);
+        setFees(objFees);
+        console.log('nights4', nights);
         //console.log('obj', fees," ", objFees, ' ', showFees);
         setShowFees(false);
-        console.log('nights4', nights);
+        console.log('nights5', nights);
         setButtonTitle('Reserve');
       }
       //console.log('Data Received', data.data[0]);
