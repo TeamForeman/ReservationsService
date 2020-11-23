@@ -49,7 +49,7 @@ const CalendarComponent = (props) => {
     let index = findIndex(date);
     let obj = {};
     obj.startDate = date;
-    obj.endDate = props.data.arr[index] -1;
+    obj.endDate = props.data.arr[index] - 1;
     setDisabledOnSelect(obj);
   };
 
@@ -72,6 +72,7 @@ const CalendarComponent = (props) => {
     every time end date is selected program automatically send api request to server and received data about costs
   **/
   useEffect(() => {
+    console.log('enddate useEffect');
     props.endDateClick(startDate, endDate);
   }, [endDate]);
 
