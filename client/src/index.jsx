@@ -111,13 +111,13 @@ function Example () {
       endDate: endDate,
       appartmentID: appartmentID
     };
-    let nights = (endDate - startDate) / (1000 * 60 * 60 * 24);
+    let nights = (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
     //console.log(nights);
     const result = axios.get('/api/reservation/reservationCost',{
       params: query
     }).then (data => {
       console.log('enddate data  received');
-      console.log('enddate data  shoeFees', startDate +" "+ endDate);
+      console.log('enddate data  shoeFees', endDate.getTime() - startDate.getTime());
       if (nights >= 1) {
         let receivedObj = data.data[0];
 
