@@ -17,14 +17,14 @@ app.get('/listing/*', (req, res) => {
 });
 
 app.get('/api/reservation/calendar', (req, res) => {
-  console.log(req.query.appartmentID);
+  //console.log(req.query.appartmentID);
   let appartmentID = req.query.ApartmentId;
 
   db.getCalendarDataByApartment(appartmentID, (err, data) => {
     if (err) {
       res.sendStatus(400);
     } else {
-      console.log(data);
+      //console.log(data);
       res.status(201).json(data);
     }
   });
@@ -37,7 +37,7 @@ app.get('/api/reservation/reservationCost', (req, res) => {
       console.log(appartmentID);
       res.sendStatus(400);
     } else {
-      console.log(appartmentID);
+      console.log('Reservation appartmentID', appartmentID);
       res.status(201).json(data);
     }
   });
@@ -46,7 +46,7 @@ app.get('/api/reservation/reservationCost', (req, res) => {
 
 app.post('/api/reservation/makeReservation', (req, res) => {
   console.log('makeReservation');
-  console.log(req.body.params);
+  //console.log(req.body.params);
   let params = req.body.params;
   db.makeReservation (params, (err, data) => {
     if (err) {
