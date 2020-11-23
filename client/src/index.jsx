@@ -118,7 +118,8 @@ function Example () {
     }).then (data => {
       console.log('enddate data  received');
       console.log('enddate data  shoeFees', (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) ," ", nights);
-      if ((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) >= 1) {
+      if (Number(nights) >= 1) {
+        console.log(nights);
         let receivedObj = data.data[0];
 
         let objFees = {
