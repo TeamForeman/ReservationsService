@@ -117,7 +117,7 @@ function Example () {
       params: query
     }).then (data => {
       console.log('enddate data  received');
-      console.log('enddate data  shoeFees', nights);
+      console.log('enddate data  shoeFees', startDate +" "+ endDate);
       if (nights >= 1) {
         let receivedObj = data.data[0];
 
