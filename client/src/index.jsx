@@ -117,8 +117,10 @@ function Example () {
       params: query
     }).then (data => {
       console.log('enddate data  received');
+      console.log('enddate data  shoeFees', nights);
       if (nights >= 1) {
         let receivedObj = data.data[0];
+
         let objFees = {
           nights: nights,
           price: receivedObj.CalendarDays.apartmentCost,
@@ -126,7 +128,7 @@ function Example () {
           serviceFee: receivedObj.CalendarDays.serviceCost,
           total: receivedObj.CalendarDays.totalCost
         };
-        console.log('enddate data  shoeFees', showFees);
+
         setFees(objFees);
         //console.log('obj', fees," ", objFees, ' ', showFees);
         setShowFees(false);
