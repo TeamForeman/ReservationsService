@@ -119,6 +119,7 @@ function Example () {
       console.log('enddate data  received');
       console.log('enddate data  shoeFees', (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) ," ", nights);
       if (Number(nights) >= 1) {
+        console.log('nights1', nights);
 
         let receivedObj = data.data[0];
         let objFees = {
@@ -128,11 +129,12 @@ function Example () {
           serviceFee: receivedObj.CalendarDays.serviceCost,
           total: receivedObj.CalendarDays.totalCost
         };
-
+        console.log('nights2', nights);
         setFees(objFees);
+        console.log('nights3', nights);
         //console.log('obj', fees," ", objFees, ' ', showFees);
         setShowFees(false);
-        console.log(nights);
+        console.log('nights4', nights);
         setButtonTitle('Reserve');
       }
       //console.log('Data Received', data.data[0]);
