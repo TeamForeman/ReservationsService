@@ -101,6 +101,7 @@ function Example () {
   **/
 
   const endDateClick = (startDate, endDate) => {
+    console.log('enddate start');
     setReservationDates({startDate: startDate, endDate: endDate});
     setShowFees(true);
     //console.log('sendData');
@@ -115,6 +116,7 @@ function Example () {
     const result = axios.get('/api/reservation/reservationCost',{
       params: query
     }).then (data => {
+      console.log('enddate data  received');
       if (nights >= 1) {
         let receivedObj = data.data[0];
         let objFees = {
@@ -127,6 +129,7 @@ function Example () {
         setFees(objFees);
         //console.log('obj', fees," ", objFees, ' ', showFees);
         setShowFees(false);
+        console.log('enddate data  shoeFees', showFees);
         setButtonTitle('Reserve');
       }
       //console.log('Data Received', data.data[0]);
