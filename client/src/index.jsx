@@ -126,10 +126,11 @@ function Example () {
           serviceFee: receivedObj.CalendarDays.serviceCost,
           total: receivedObj.CalendarDays.totalCost
         };
+        console.log('enddate data  shoeFees', showFees);
         setFees(objFees);
         //console.log('obj', fees," ", objFees, ' ', showFees);
         setShowFees(false);
-        console.log('enddate data  shoeFees', showFees);
+
         setButtonTitle('Reserve');
       }
       //console.log('Data Received', data.data[0]);
