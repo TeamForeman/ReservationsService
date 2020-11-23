@@ -117,7 +117,7 @@ function Example () {
       params: query
     }).then (data => {
       console.log('enddate data  received');
-      console.log('enddate data  shoeFees', endDate.getTime() - startDate.getTime());
+      console.log('enddate data  shoeFees', endDate.getTime() - startDate.getTime() / (1000 * 60 * 60 * 24));
       if (nights >= 1) {
         let receivedObj = data.data[0];
 
