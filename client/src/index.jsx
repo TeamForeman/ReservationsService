@@ -124,11 +124,11 @@ function Example () {
         let receivedObj = data.data[0];
         console.log('nights2', data);
         let objFees = {
-          // nights: nights,
-          // price: receivedObj.CalendarDays.apartmentCost,
-          // cleanigFee: receivedObj.CalendarDays.cleaningCost,
-          // serviceFee: receivedObj.CalendarDays.serviceCost,
-          // total: receivedObj.CalendarDays.totalCost
+          nights: nights,
+          price: receivedObj.CalendarDays.apartmentCost,
+          cleanigFee: receivedObj.CalendarDays.cleaningCost,
+          serviceFee: receivedObj.CalendarDays.serviceCost,
+          total: receivedObj.CalendarDays.totalCost
         };
         console.log('nights3', nights);
         setFees(objFees);

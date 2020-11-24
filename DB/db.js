@@ -62,7 +62,7 @@ let getCostsByAppartment = (id, callback) => {
       console.log('Error in Costs Fetching');
       //throw (err);
     } else {
-      console.log(result);
+      //console.log(result);
       callback (null, result[0]);
     }
   });
