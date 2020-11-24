@@ -63,7 +63,7 @@ let getCostsByAppartment = (id, callback) => {
       //throw (err);
     } else {
       console.log(result);
-      callback (null, result);
+      callback (null, result[0]);
     }
   });
 };
