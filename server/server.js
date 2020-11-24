@@ -37,7 +37,7 @@ app.get('/api/reservation/reservationCost', (req, res) => {
       console.log(appartmentID);
       res.sendStatus(400);
     } else {
-      console.log('Reservation appartmentID', appartmentID);
+      console.log('Reservation appartmentID', data);
       console.log('Reservation data', data);
       res.status(201).json(data);
     }
