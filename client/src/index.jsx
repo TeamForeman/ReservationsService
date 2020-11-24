@@ -122,7 +122,7 @@ function Example () {
         console.log('nights1', nights);
 
         let receivedObj = data.data[0];
-        console.log('nights2', data);
+        console.log('nights2', receivedObj);
         let objFees = {
           nights: nights,
           price: receivedObj.CalendarDays.apartmentCost,
