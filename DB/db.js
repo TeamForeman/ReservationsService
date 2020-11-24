@@ -56,13 +56,13 @@ let getCalendarDataByApartment = (id, callback) => {
 
 let getCostsByAppartment = (id, callback) => {
   //console.log('here');
-  Calendar.find({apartmentId: id, 'CalendarDays.date': '2021-03-13T03:50:11.071Z'}, (err, result) => {
+  Calendar.find({apartmentId: id}, (err, result) => {
     if (err) {
-      //console.log('here1');
+      console.log('here1');
       console.log('Error in Costs Fetching');
       //throw (err);
     } else {
-      //console.log(result);
+      console.log(result);
       callback (null, result);
     }
   });
