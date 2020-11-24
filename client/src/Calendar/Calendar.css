@@ -75,6 +75,7 @@
     margin: 0.5rem;
     font-size: 1rem;
     padding: 0.2rem;
+    color: rebeccapurple;
 
   }
 
@@ -118,6 +119,7 @@
 
   .react-datepicker {
     font-family: 'Roboto';
+    background: white;
     font-size: 0.8rem;
     border: 0px;
     border-radius: 0;
