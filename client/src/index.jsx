@@ -121,8 +121,8 @@ function Example () {
       if (Number(nights) >= 1) {
         console.log('nights1', nights);
 
-        let receivedObj = data.data[0];
-        console.log('nights2', data);
+        let receivedObj = data.data;
+        console.log('nights2', receivedObj);
         let objFees = {
           nights: nights,
           price: receivedObj.CalendarDays.apartmentCost,
