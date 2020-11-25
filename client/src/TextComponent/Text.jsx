@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
 import svg from 'svg';
 import Desctiption from './description.jsx';
-import {MainDivEM, LineEM} from './styled-components.js';
+import './styled-components.css';
 import ExtraInformation from './extraInformation.jsx';
 import Amenities from './amenities.jsx';
-import './style.css';
+
 
 const Text = () => {
   return (
     <div>
-      <MainDivEM>
-        <LineEM/>
+      <div className ="MainDivEM">
+        <hr className ="LineEM"/>
         <Desctiption/>
-        <LineEM/>
+        <hr className ="LineEM"/>
         <ExtraInformation/>
-        <LineEM/>
+        <hr className ="LineEM"/>
         <Amenities/>
-        <LineEM/>
-      </MainDivEM>
+        <hr className ="LineEM"/>
+      </div>
 
     </div>
 

@@ -1,13 +1,14 @@
-import styled from 'styled-components';
 
-export const MainDivEM = styled.div `
+
+.MainDivEM {
   display: flex;
   width: 500px;
   flex-direction: column;
   align-items: left;
-`;
+  margin: 100px;
+}
 
-export const SvgStylingEM = styled.div `
+.SvgStylingEM {
   display: block;
   height: 24px;
   width: 24px;
@@ -17,9 +18,9 @@ export const SvgStylingEM = styled.div `
   justify-self: center;
   align-self: center;
   justify-items: center;
-`;
+}
 
-export const DescriptionTextBoldEM = styled.div `
+.DescriptionTextBoldEM {
   font-family: 'Roboto';
   font-weight: normal;
   grid-column: 2 / span 1;
@@ -28,9 +29,8 @@ export const DescriptionTextBoldEM = styled.div `
   align-self: start;
   justify-items: start;
   letter-spacing: 0.7px;
-`;
-
-export const DescriptionTextLightEM = styled.div `
+}
+.DescriptionTextLightEM{
   font-family: 'Roboto';
   font-weight: lighter;
   grid-column: 2 / span 1;
@@ -40,15 +40,15 @@ export const DescriptionTextLightEM = styled.div `
   justify-items: start;
   font-size: 14px;
   letter-spacing: 0.7px;
-`;
-export const ExtraInfoTextLightEM = styled.div `
+}
+.ExtraInfoTextLightEM{
   font-family: 'Roboto';
   font-weight: lighter;
   font-size: 16px;
   letter-spacing: 0.7px;
   margin: 20px;
-`;
-export const AmenitiesTextEM = styled.div `
+}
+.AmenitiesTextEM {
   font-family: 'Roboto';
   font-weight: lighter;
   font-size: 16px;
@@ -59,31 +59,30 @@ export const AmenitiesTextEM = styled.div `
   justify-self: start;
   align-self: start;
   justify-items: start;
-`;
+}
 
-export const DescriptionGridEM = styled.div`
+.DescriptionGridEM{
   display: grid;
   grid-template-columns: 30px auto;
   grid-template-rows:auto;
   padding: 10px;
-`;
-export const AmenitiesGridEM = styled.div`
+}
+.AmenitiesGridEM {
   display: grid;
   grid-template-columns: 30px auto;
   grid-template-rows: 50% auto;
   padding-left: 10px;
-`;
-export const LineEM = styled.hr`
+}
+.LineEM{
   color: rgba(0, 0, 0, 0.35);
   width:490px;
   margin: 20px;
+}
 
-`;
-
-export const AmentitiesTytleEM = styled.div `
+ .AmentitiesTytleEM{
   font-family: 'Roboto';
   font-weight: bold;
   font-size: 20px;
   letter-spacing: 0.7px;
   margin: 10px;
-`;
+ }
