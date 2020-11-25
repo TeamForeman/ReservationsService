@@ -10,6 +10,7 @@ import Price from './Price/Price.jsx';
 import Button from './Button/Button.jsx';
 import Rating from './Rating/Rating.jsx';
 import Fees from './Fees/Fees.jsx';
+import Text from './TextComponent/Text.jsx';
 
 
 // eslint-disable-next-line func-style
@@ -192,21 +193,26 @@ function App () {
 
 
   return (
-    <div className ="box-em" id = "one-em">
-      {isBusy .loading ? (
-        'Loading...'
-      ) : (
-        <div >
-          <div className="price-rating-grid-em">
-            <Price className="price-em" price={price}/>
-            <Rating className="rating-em" />
-          </div>
-          <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
-          <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>
-          <Button buttonTitle = {buttonTitle} makeReservation={makeReservation} />
-          {showFees ? null : <Fees fees = {fees} /> }
+    <div>
+      <div className="outerGrid-em">
+        <Text className="outerGrid-left-em"/>
+        <div className ="outerGrid-right-em box-em" id = "one-em">
+          {isBusy .loading ? (
+            'Loading...'
+          ) : (
+            <div >
+              <div className="price-rating-grid-em">
+                <Price className="price-em" price={price}/>
+                <Rating className="rating-em" />
+              </div>
+              <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
+              <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>
+              <Button buttonTitle = {buttonTitle} makeReservation={makeReservation} />
+              {showFees ? null : <Fees fees = {fees} /> }
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

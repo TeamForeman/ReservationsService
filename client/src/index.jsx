@@ -4,7 +4,7 @@ import App from './App.jsx';
 import Text from './TextComponent/Text.jsx';
 
 
-ReactDom.render(<Text/>, document.getElementById('text'));
+// ReactDom.render(<Text/>, document.getElementById('text'));
 
 if (document.getElementById('app')) {
   ReactDom.render(<App/>, document.getElementById('app'));
