@@ -77,8 +77,10 @@
 }
 
 .outerGrid-em{
+  margin: 0 auto;
+  width: 1128px;
   display: grid;
-  grid-template-columns: auto 25%;
+  grid-template-columns: auto 35%;
   grid-template-rows:auto;
 }
 .outerGrid-left-em{
