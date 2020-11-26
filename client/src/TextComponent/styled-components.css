@@ -45,7 +45,7 @@
   font-weight: lighter;
   font-size: 16px;
   letter-spacing: 0.7px;
-  margin: 20px;
+  margin: 10px;
 }
 .AmenitiesTextEM {
   font-family: 'Roboto';
@@ -91,11 +91,12 @@
    display: grid;
    grid-template-columns: auto auto;
    grid-template-rows: 50% 50%;
+   margin: 10px;
  }
 
  .FirstTitleBoldEm{
   font-family: 'Roboto';
-  font-weight: bold;
+  font-weight: normal;
   font-size: 25px;
   letter-spacing: 0.7px;
   margin: 10px;
