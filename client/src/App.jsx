@@ -120,10 +120,7 @@ function App () {
       console.log('enddate data  received');
       console.log('enddate data  shoeFees', (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) ," ", nights);
       if (Number(nights) >= 1) {
-        //console.log('nights1', nights);
-
         let receivedObj = data.data;
-        //console.log('nights2', receivedObj);
         let objFees = {
           nights: nights,
           price: receivedObj.CalendarDays.apartmentCost,
@@ -131,19 +128,14 @@ function App () {
           serviceFee: receivedObj.CalendarDays.serviceCost,
           total: receivedObj.CalendarDays.totalCost
         };
-        //console.log('nights3', nights);
+        let content = document.getElementsByClassName('box-em');
+        content.item(0).style.height = '45%';
         setFees(objFees);
-        //console.log('nights4', nights);
-        //console.log('obj', fees," ", objFees, ' ', showFees);
         setShowFees(false);
-        //console.log('nights5', nights);
         setButtonTitle('Reserve');
       }
-      //console.log('Data Received', data.data[0]);
     }).catch(error => {
-      //console.log('request Cost data error', error);
     });
-    // return () => { ignore = true; };
     return () => {
       setShowFees(true);
     };
