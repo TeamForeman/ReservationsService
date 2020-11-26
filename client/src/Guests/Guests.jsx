@@ -16,14 +16,30 @@ const Guests = (props) => {
 
   const openColapible = ()=> {
     let content = document.getElementsByClassName('content-em');
+    let content2 = document.getElementsByClassName('box-em');
+
 
     if (content.item(0).style.display === 'block') {
+
       content.item(0).style.display = 'none';
+
+      if (content2.item(0).style.height === '60%') {
+        content2.item(0).style.height = '45%';
+      } else {
+        content2.item(0).style.height = '27%';
+      }
+
       document.getElementsByClassName('arrow-em').item(0).classList.remove("up-em");
 
       document.getElementsByClassName('arrow-em').item(0).classList.add("down-em");
     } else {
       content.item(0).style.display = 'block';
+      console.log('height =' , content2.item(0).style.height );
+      if (content2.item(0).style.height === '27%' || content2.item(0).style.height ==='' ) {
+        content2.item(0).style.height = '45%';
+      } else {
+        content2.item(0).style.height = '60%';
+      }
       //console.log(document.getElementsByClassName('arrow-em').item(0).classList);
       //console.log(document.getElementsByClassName('arrow').item(0).classList);
       document.getElementsByClassName('arrow-em').item(0).classList.remove("down-em");

@@ -24,6 +24,7 @@
   grid-column-end: 4;
   grid-row-start:1;
   grid-row-end: 2;
+  justify-self: end;
 
 }
 
@@ -39,6 +40,7 @@
   grid-column-end: 4;
   grid-row-start:2;
   grid-row-end: 3;
+  justify-self: end;
 
 }
 .service-text-em {
@@ -53,6 +55,7 @@
   grid-column-end: 4;
   grid-row-start:3;
   grid-row-end: 4;
+  justify-self: end;
 
 }
 .line-em {
@@ -83,6 +86,7 @@
   grid-row-end: 6;
   text-decoration-line: underline;
   text-decoration-style: double;
+  justify-self: end;
 
 }
 .text-em {

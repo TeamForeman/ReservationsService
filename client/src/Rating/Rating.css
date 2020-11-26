@@ -1,8 +1,4 @@
-.rating-em {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
+
 .rating-part-em {
   font-size: 15px;
   font-weight: normal;

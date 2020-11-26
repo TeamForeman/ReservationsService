@@ -129,7 +129,11 @@ function App () {
           total: receivedObj.CalendarDays.totalCost
         };
         let content = document.getElementsByClassName('box-em');
-        content.item(0).style.height = '45%';
+        if (content.item(0).style.height === '27%' || content.item(0).style.height ==='' ) {
+          content.item(0).style.height = '45%';
+        } else {
+          content.item(0).style.height = '60%';
+        }
         setFees(objFees);
         setShowFees(false);
         setButtonTitle('Reserve');
@@ -194,8 +198,13 @@ function App () {
           ) : (
             <div >
               <div className="price-rating-grid-em">
-                <Price className="price-em" price={price}/>
-                <Rating className="rating-em" />
+                <div className="price-em" >
+                  <Price price={price}/>
+                </div>
+                <div className="rating-em" >
+                  <Rating/>
+                </div>
+
               </div>
               <Calendar data = {caldendarData} endDateClick = {endDateClick}/>
               <Guests guests = {guests} guestsUpdate = {guestsUpdate}/>

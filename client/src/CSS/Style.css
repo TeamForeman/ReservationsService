@@ -52,7 +52,7 @@
 .price-rating-grid-em {
   width: 90%;
   display: grid;
-  grid-template-columns: 50% auto  10%;
+  grid-template-columns: 50% auto  auto;
   grid-template-rows: 30px;
   font-family: 'Roboto';
   padding: 10px;
@@ -67,12 +67,14 @@
   grid-row-start:1;
   grid-row-end: 2;
 
+
 }
 .rating-em {
-  grid-column-start: 4;
-  grid-column-end: 5;
+  grid-column-start: 3;
+  grid-column-end: 4;
   grid-row-start:1;
   grid-row-end: 2;
+  justify-self: end;
 
 }
 
