@@ -7,11 +7,11 @@ import Amenities from './amenities.jsx';
 import FirtsTitle from './firstTitle.jsx';
 
 
-const Text = () => {
+const Text = (props) => {
   return (
     <div>
       <div className ="MainDivEM">
-        <FirtsTitle/>
+        <FirtsTitle guests={props.guests}/>
         <hr className ="LineEM"/>
         <Desctiption/>
         <hr className ="LineEM"/>

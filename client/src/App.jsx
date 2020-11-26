@@ -195,7 +195,7 @@ function App () {
   return (
     <div>
       <div className="outerGrid-em">
-        <Text className="outerGrid-left-em"/>
+        <Text guests = {guests} className="outerGrid-left-em"/>
         <div className ="outerGrid-right-em box-em" id = "one-em">
           {isBusy .loading ? (
             'Loading...'
