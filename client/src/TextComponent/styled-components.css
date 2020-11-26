@@ -86,3 +86,48 @@
   letter-spacing: 0.7px;
   margin: 10px;
  }
+
+ .FirstTitleGridEm {
+   display: grid;
+   grid-template-columns: auto auto;
+   grid-template-rows: 50% 50%;
+ }
+
+ .FirstTitleBoldEm{
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 25px;
+  letter-spacing: 0.7px;
+  margin: 10px;
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 1;
+  justify-self: start;
+  align-self: start;
+  justify-items: start;
+ }
+
+ .FirstTitleLightEm{
+  font-family: 'Roboto';
+  font-weight: light;
+  font-size: 18px;
+  letter-spacing: 0.7px;
+  margin: 10px;
+  grid-column: 1 / span 1;
+  grid-row: 2 / span 1;
+  justify-self: start;
+  align-self: start;
+  justify-items: start;
+ }
+
+ .FirstTitleImgEm {
+  height: 50px;
+  width: 50px;
+  margin-left: 12px;
+  border-radius: 50%;
+  grid-column: 2 / span 1;
+  grid-row: 1 / span 2;
+  justify-self: center;
+  align-self: center;
+  justify-items: center;
+ }
+

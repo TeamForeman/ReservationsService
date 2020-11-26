@@ -4,12 +4,14 @@ import Desctiption from './description.jsx';
 import './styled-components.css';
 import ExtraInformation from './extraInformation.jsx';
 import Amenities from './amenities.jsx';
+import FirtsTitle from './firstTitle.jsx';
 
 
 const Text = () => {
   return (
     <div>
       <div className ="MainDivEM">
+        <FirtsTitle/>
         <hr className ="LineEM"/>
         <Desctiption/>
         <hr className ="LineEM"/>
