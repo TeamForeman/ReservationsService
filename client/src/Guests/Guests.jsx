@@ -99,12 +99,13 @@ const Guests = (props) => {
               onClick={infants < guests * 3 ? () => setInfants(infants + 1) : null}
             > + </button>
           </div>
+          <div className = "buttom-text-em">
+            {guests} maximum. Infants don’t count toward the number of guests.
+          </div>
 
 
         </div>
-        <div className = "buttom-text-em">
-          {guests} maximum. Infants don’t count toward the number of guests.
-        </div>
+
       </div>
 
     </div>

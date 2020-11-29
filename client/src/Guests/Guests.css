@@ -54,9 +54,8 @@
   font-size: 18px;
   font-weight: lighter;
   letter-spacing: 0.7px;
-  padding: 10px;
-  margin-top: 25px;
   width: 90%;
+
 
 }
 .box-width-em {
@@ -77,11 +76,16 @@
   grid-row-end: 2;
 }
 .adults-number-em{
-  grid-column: 4;
+  grid-column-start: 4;
+  grid-column-end: 5;
   grid-row: 1 / span 1;
+  justify-self: center;
+  align-self: center;
+  justify-items: center;
 }
 .adults-button-plus-em{
-  grid-column: 5;
+  grid-column-start: 6;
+  grid-column-end: 7;
   grid-row: 1 / span 1;
 }
 
@@ -105,8 +109,8 @@
   grid-row-end: 3;
 }
 .children-button-plus-em{
-  grid-column-start: 5;
-  grid-column-end: 6;
+  grid-column-start: 6;
+  grid-column-end: 7;
   grid-row-start: 2;
   grid-row-end: 3;
 }
@@ -131,12 +135,20 @@
   grid-row-end: 4;
 }
 .infants-button-plus-em{
-  grid-column-start: 5;
-  grid-column-end: 6;
+  grid-column-start: 6;
+  grid-column-end: 7;
   grid-row-start: 3;
   grid-row-end: 4;
 }
+
+
+
 .buttom-text-em {
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  margin-top: 20px;
   width: 90%;
   font-family: 'Roboto';
   font-size: 12px;
