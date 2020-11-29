@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import svg from 'svg';
-import './styled-components.css';
+import './styled.css';
 
 
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import'./styled-components.css';
+import'./styled.css';
 
 
 const Amenities = () => {

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import svg from 'svg';
 import Desctiption from './description.jsx';
-import './styled-components.css';
+import './styled.css';
 import ExtraInformation from './extraInformation.jsx';
 import Amenities from './amenities.jsx';
 import FirtsTitle from './firstTitle.jsx';
