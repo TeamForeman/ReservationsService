@@ -34,7 +34,7 @@ const Guests = (props) => {
       document.getElementsByClassName('arrow-em').item(0).classList.add("down-em");
     } else {
       content.item(0).style.display = 'block';
-      console.log('height =' , content2.item(0).style.height );
+      //console.log('height =' , content2.item(0).style.height );
       if (content2.item(0).style.height === '27%' || content2.item(0).style.height ==='' ) {
         content2.item(0).style.height = '45%';
       } else {
@@ -102,9 +102,9 @@ const Guests = (props) => {
 
 
         </div>
-        {/* <div className = "buttom-text">
+        <div className = "buttom-text-em">
           {guests} maximum. Infants don’t count toward the number of guests.
-        </div> */}
+        </div>
       </div>
 
     </div>
