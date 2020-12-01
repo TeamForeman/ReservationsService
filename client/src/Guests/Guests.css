@@ -41,7 +41,7 @@
 }
 
 .content-em {
-  padding: 0 18px;
+  padding: 0 0;
   display: none;
   overflow: hidden;
 }
@@ -74,19 +74,24 @@
   grid-column-end: 4;
   grid-row-start:1;
   grid-row-end: 2;
+  justify-self: start;
+  align-self: start;
+  justify-items: start;
 }
 .adults-number-em{
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row: 1 / span 1;
-  justify-self: center;
-  align-self: center;
-  justify-items: center;
+  justify-self: start;
+  align-self: start;
+  justify-items: start;
+
 }
 .adults-button-plus-em{
   grid-column-start: 6;
   grid-column-end: 7;
   grid-row: 1 / span 1;
+
 }
 
 .children-text-em{
@@ -145,10 +150,9 @@
 
 .buttom-text-em {
   grid-column-start: 1;
-  grid-column-end: 7;
+  grid-column-end: 6;
   grid-row-start: 4;
   grid-row-end: 5;
-  margin-top: 20px;
   width: 90%;
   font-family: 'Roboto';
   font-size: 12px;
