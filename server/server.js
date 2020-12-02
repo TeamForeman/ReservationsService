@@ -58,8 +58,36 @@ app.post('/api/reservation/makeReservation', (req, res) => {
       res.sendStatus(201);
     }
   });
+});
 
+app.put('/api/reservation/calender', (req, res) => {
+  console.log('updateAvailability');
+  //console.log(req.body.params);
+  let params = req.body.params;
+  db.updateCalender (params, (err, data) => {
+    if (err) {
+      console.log('error updating calender');
+      res.sendStatus(400);
+    } else {
+      console.log('Calender Data updated');
+      res.sendStatus(201);
+    }
+  });
+});
 
+app.delete('/api/reservation/calender', (req, res) => {
+  console.log('remove listing');
+  //console.log(req.body.params);
+  let params = req.body.params;
+  db.deleteApartment (params, (err, data) => {
+    if (err) {
+      console.log('error removing appartment');
+      res.sendStatus(400);
+    } else {
+      console.log('Listing successfully removed');
+      res.sendStatus(201);
+    }
+  });
 });
 
 let port = process.env.PORT || 3001;
