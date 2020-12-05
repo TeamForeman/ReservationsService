@@ -11,13 +11,18 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+1. [CRUD API](#CRUD)
+2. [Requirements](#requirements)
+3. [Development](#development)
 
-## Usage
+## CRUD
 
-> Some usage instructions
+| Function  | Method | Endpoint |
+| ------------- | ------------- | ------------ |
+| Get calender/pricing for listing  | GET  | /api/reservation/calender |
+| Create a new listing  | POST  | /api/reservation/calender |
+| Update a listings price/calender | PUT  | /api/reservation/calender |
+| Remove a listing  | DELETE  | /api/reservation/calender |
 
 ## Requirements
 
