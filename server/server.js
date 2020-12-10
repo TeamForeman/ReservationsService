@@ -6,86 +6,114 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 const path = require('path');
-let db = require('../DB/db.js');
-let data = require('../DB/data.js');
+let db = require('../DB/SDCdatabase/pgdb.js');
 
 app.get('/listing/*', (req, res) => {
-
-
   res.sendFile (path.join(__dirname, '../client/dist/index.html'));
-
 });
 
-app.get('/api/reservation/calendar', (req, res) => {
-  //console.log(req.query.appartmentID);
-  let appartmentID = req.query.ApartmentId;
-
-  db.getCalendarDataByApartment(appartmentID, (err, data) => {
+app.get('/api/listings/:id', (req, res) => {
+  let params = req.params.id;
+  db.getListings(params, (err, data) => {
     if (err) {
       res.sendStatus(400);
     } else {
-      //console.log(data);
-      res.status(201).json(data);
-    }
-  });
-});
-
-app.get('/api/reservation/reservationCost', (req, res) => {
-  let appartmentID = (Number) (req.query.appartmentID);
-  db.getCostsByAppartment(appartmentID, (err, data) => {
-    if (err) {
-      console.log(appartmentID);
-      res.sendStatus(400);
-    } else {
-      //console.log('Reservation appartmentID', data);
-      //console.log('Reservation data', data);
-      res.status(201).json(data);
+      res.status(200).json(data);
     }
   });
 });
 
 
-app.post('/api/reservation/makeReservation', (req, res) => {
-  console.log('makeReservation');
-  //console.log(req.body.params);
-  let params = req.body.params;
-  db.makeReservation (params, (err, data) => {
+app.get('/api/reservations/:id', (req, res) => {
+  let params = [
+    req.params.id,
+    req.body.startMonth,
+    req.body.endMonth
+  ];
+
+  db.getReservations(params, (err, data) => {
     if (err) {
-      console.log('error during saving reservation data');
       res.sendStatus(400);
     } else {
-      console.log('Reservation Data saved');
+      res.status(200).json(data);
+    }
+  });
+});
+
+
+app.post('/api/listings', (req, res) => {
+  let params = [
+    req.body.id,
+    req.body.totalCapacity,
+    req.body.avgRating,
+    req.body.totalReviews,
+    req.body.apartmentCost,
+    req.body.cleaningCost,
+    req.body.serviceCost
+  ];
+  db.createListings(params, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
       res.sendStatus(201);
     }
   });
 });
 
-app.put('/api/reservation/calender', (req, res) => {
-  console.log('updateAvailability');
-  //console.log(req.body.params);
-  let params = req.body.params;
-  db.updateCalender (params, (err, data) => {
+app.post('/api/reservations', (req, res) => {
+  let params = [
+    req.body.reservationid,
+    req.body.stayLength,
+    req.body.startDate,
+    req.body.endDate,
+    req.body.listingid,
+  ];
+  db.createReservations(params, (err, data) => {
     if (err) {
-      console.log('error updating calender');
       res.sendStatus(400);
     } else {
-      console.log('Calender Data updated');
       res.sendStatus(201);
     }
   });
 });
 
-app.delete('/api/reservation/calender', (req, res) => {
-  console.log('remove listing');
-  //console.log(req.body.params);
-  let params = req.body.params;
-  db.deleteApartment (params, (err, data) => {
+app.put('/api/listings', (req, res) => {
+  let params = [
+    req.body.id,
+    req.body.category,
+    req.body.value
+  ];
+  db.updateListing(params, (err, data) => {
     if (err) {
-      console.log('error removing appartment');
       res.sendStatus(400);
     } else {
-      console.log('Listing successfully removed');
       res.sendStatus(201);
+    }
+  });
+});
+
+app.put('/api/listings/:id', (req, res) => {
+  let params = [
+    req.params.id,
+    req.body.category,
+    req.body.value
+  ];
+  db.updateListing(params, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
+
+app.delete('/api/listings/:id', (req, res) => {
+  let params = req.params.id;
+  db.deleteListing(params, (err, data) => {
+    if (err) {
+      res.sendStatus(400);
+    } else {
+      res.sendStatus(200);
     }
   });
 });
@@ -94,3 +122,4 @@ let port = process.env.PORT || 3001;
 app.listen(port, ()=> {
   console.log('listening on port', port);
 });
+
