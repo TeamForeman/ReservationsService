@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
 const Rating = (props) => {
-  const rating = 5.0;
-  const count = 15;
+  const rating = props.rating;
+  const reviews = props.reviews;
   return (
     <div>
-      <div className="rating-part-em">{rating} ({count})</div>
+      <div className="rating-part-em">{rating} ({reviews})</div>
     </div>
   );
 };
