@@ -27,8 +27,6 @@ app.get('/api/listings/:id', (req, res) => {
 app.get('/api/reservations/:id', (req, res) => {
   let params = [
     req.params.id,
-    req.body.startMonth,
-    req.body.endMonth
   ];
 
   db.getReservations(params, (err, data) => {

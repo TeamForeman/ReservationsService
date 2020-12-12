@@ -20,7 +20,7 @@ module.exports.getReservations = (params, callback) => {
   var start = params[1];
   var end = params[2];
 
-  var queryString = `SELECT * FROM reservations WHERE listingid = ${id} AND startdate BETWEEN '${start}' AND '${end}'`;
+  var queryString = `SELECT * FROM reservations WHERE listingid = ${id}`;
   pool.query(queryString, (err, results) => {
     callback(err, results.rows);
   });
