@@ -28,15 +28,14 @@ module.exports.getReservations = (params, callback) => {
 
 module.exports.createListings = (params, callback) => {
   console.log(params);
-  var id = params[0];
-  var totalCapacity = params[1];
-  var avgRating = params[2];
-  var totalReviews = params[3];
-  var apartmentCost = params[4];
-  var cleaningCost = params[5];
-  var serviceCost = params[6];
+  var totalCapacity = params[0];
+  var avgRating = params[1];
+  var totalReviews = params[2];
+  var apartmentCost = params[3];
+  var cleaningCost = params[4];
+  var serviceCost = params[5];
 
-  var queryString = `INSERT INTO listings VALUES (${id}, ${totalCapacity}, ${avgRating}, ${totalReviews}, ${apartmentCost}, ${cleaningCost}, ${serviceCost})`;
+  var queryString = `INSERT INTO listings(totalcapacity, avgrating, totalreviews, apartmentcost, cleaningcost, servicecost) VALUES (${totalCapacity}, ${avgRating}, ${totalReviews}, ${apartmentCost}, ${cleaningCost}, ${serviceCost})`;
   pool.query(queryString, (err, results) => {
     callback(err, results);
   });

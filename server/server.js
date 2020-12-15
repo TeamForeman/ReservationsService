@@ -1,4 +1,5 @@
 const express = require('express');
+require('newrelic');
 let app = express();
 app.use(express.static(__dirname + '/../client/dist'));
 const bodyParser = require('body-parser');
@@ -41,7 +42,6 @@ app.get('/api/reservations/:id', (req, res) => {
 
 app.post('/api/listings', (req, res) => {
   let params = [
-    req.body.id,
     req.body.totalCapacity,
     req.body.avgRating,
     req.body.totalReviews,

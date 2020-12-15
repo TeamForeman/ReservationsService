@@ -48,6 +48,7 @@ function App() {
         setBooked(res.data);
       })
       .catch(err => console.log(err));
+
   }, []);
 
   useEffect(() => {
